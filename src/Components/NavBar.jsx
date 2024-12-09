@@ -16,18 +16,34 @@ const NavBar = () => {
           </li>
           <li>
             <Link
-              to="/about"
+              to="/inventory"
               className="text-white hover:text-gray-200 transition duration-300"
             >
-              About
+              Inventory
             </Link>
           </li>
           <li>
             <Link
-              to="/contact"
+              to="/orders"
               className="text-white hover:text-gray-200 transition duration-300"
             >
-              Contact
+              Orders
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/recommendations"
+              className="text-white hover:text-gray-200 transition duration-300"
+            >
+              Recommendations
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className="text-white hover:text-gray-200 transition duration-300"
+            >
+              About
             </Link>
           </li>
         </ul>

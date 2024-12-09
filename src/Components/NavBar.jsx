@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <nav className="bg-blue-500 p-4">
+    <nav className="bg-[#20cd8d] p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-xl font-bold">React</div>
+        <div className="text-white text-xl font-bold">GroceryMate</div>
         <ul className="flex space-x-6">
           <li>
             <Link

@@ -9,9 +9,12 @@ const Inventory = () => {
   <table class="min-w-full table-auto border-separate border-spacing-0.5">
   <thead>
     <tr class="bg-green-500 text-white">
-      <th class="px-4 py-2 text-left text-sm font-semibold">Song</th>
-      <th class="px-4 py-2 text-left text-sm font-semibold">Artist</th>
-      <th class="px-4 py-2 text-left text-sm font-semibold">Year</th>
+      <th class="px-4 py-2 text-left text-sm font-semibold">Item Name</th>
+      <th class="px-4 py-2 text-left text-sm font-semibold">Quantity</th>
+      <th class="px-4 py-2 text-left text-sm font-semibold">Unit</th>
+      <th class="px-4 py-2 text-left text-sm font-semibold">Threshold</th>
+      <th class="px-4 py-2 text-left text-sm font-semibold">Last Updated</th>
+      <th class="px-4 py-2 text-left text-sm font-semibold">Status</th>
     </tr>
   </thead>
   <tbody>

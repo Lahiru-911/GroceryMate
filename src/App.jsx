@@ -8,7 +8,7 @@ function App() {
     <Router>
       {/* <NavBar /> */}
       <AppRouter />
-      <Footer/>
+      {/* <Footer/> */}
     </Router>
   );
 }

@@ -31,7 +31,7 @@ const Inventory = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="hover:bg-gray-100">
+          <tr className="bg-gray-50 hover:bg-gray-100">
             <td className="px-4 py-2">Apples</td>
             <td className="px-4 py-2">20</td>
             <td className="px-4 py-2">Kg</td>
@@ -47,7 +47,7 @@ const Inventory = () => {
             <td className="px-4 py-2">2024-12-02</td>
             <td className="px-4 py-2">Low Stock</td>
           </tr>
-          <tr className="hover:bg-gray-100">
+          <tr className="bg-gray-50 hover:bg-gray-100">
             <td className="px-4 py-2">Eggs</td>
             <td className="px-4 py-2">200</td>
             <td className="px-4 py-2">Pieces</td>
@@ -63,7 +63,7 @@ const Inventory = () => {
             <td className="px-4 py-2">2024-12-01</td>
             <td className="px-4 py-2">Low Stock</td>
           </tr>
-          <tr className="hover:bg-gray-100">
+          <tr className="bg-gray-50 hover:bg-gray-100">
             <td className="px-4 py-2">Orange</td>
             <td className="px-4 py-2">30</td>
             <td className="px-4 py-2">Kg</td>

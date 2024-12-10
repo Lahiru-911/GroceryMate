@@ -45,7 +45,7 @@ const FooterCarousel = () => {
   }, []);
 
   return (
-    <div className="bg-white">
+    <div className="bg-[#E9FAF4]">
       {/* Text-Tagline */}
       <div className="m-3 sm:m-4 md:m-5 lg:m-6 xl:m-7 2xl:m-8 font-light text-center">
         <h1 className="font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">

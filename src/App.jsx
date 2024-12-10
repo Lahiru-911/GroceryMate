@@ -7,8 +7,8 @@ import "./app.css";
 function App() {
   return (
     <Router>
-      {/* <NavBar /> */}
-      {/* <AppRouter /> */}
+      <NavBar />
+      <AppRouter />
       <Footer/>
     </Router>
   );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Recommendations = () => {
   const sections = [
     {
@@ -27,14 +28,23 @@ const Recommendations = () => {
     {
       src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       alt: "Image 1",
+      title: "Connect with Us",
+      description:
+        "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
     },
     {
       src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       alt: "Image 2",
+      title: "Connect with Us",
+      description:
+        "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
     },
     {
       src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       alt: "Image 3",
+      title: "Connect with Us",
+      description:
+        "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
     },
   ];
   return (
@@ -54,7 +64,7 @@ const Recommendations = () => {
             <h1 className="text-black font-semibold text-lg sm:text-xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-9xl leading-none mb-1">
               Don’t miss our daily amazing deals.
             </h1>
-            <p className="text-[#838383] font-normal text-xs sm:text-base md:text-lg xl:text-2xl 2xl:text-3xl">
+            <p className="text-gray-500 font-normal text-xs sm:text-base md:text-lg xl:text-2xl 2xl:text-3xl">
               Save up to 60% off on your first order
             </p>
           </div>
@@ -71,7 +81,7 @@ const Recommendations = () => {
       </div>
 
       {/* Meals */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 m-5 place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:mt-16 xl:mt-28 m-5 place-items-center">
         {sections.map((section, index) => (
           <div
             key={index}
@@ -95,11 +105,11 @@ const Recommendations = () => {
       </div>
 
       {/* GETTING STARTED */}
-      <div className="text-center flex flex-col justify-center items-center">
+      <div className="text-center flex flex-col justify-center items-center md:mt-16 xl:mt-28">
         <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl m-3 ">
           GETTING STARTED IS EASY
         </h1>
-        <p className="text-[#838383] font-normal text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl w-3/4">
+        <p className="text-gray-500 font-normal text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl w-3/4">
           Together we will find the ideal solution for your company.
         </p>
       </div>
@@ -107,15 +117,31 @@ const Recommendations = () => {
         {imageSections.map((image, index) => (
           <div
             key={index}
-            className="max-w-[400px] max-h-[900px] w-full relative rounded-lg bg-white/60 shadow-2xl ring-1 ring-gray-900/10 transition-transform duration-300 ease-in-out hover:scale-105 z-10 overflow-hidden"
+            className="max-w-[400px] max-h-[900px] w-full flex flex-col items-center relative rounded-lg bg-white/60 shadow-2xl ring-1 ring-gray-900/10 transition-transform duration-300 ease-in-out hover:scale-105 z-10 overflow-hidden"
           >
             <img
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-[300px] md:h-[400px] lg:h-[500px]"
               src={image.src}
               alt={image.alt}
             />
+            <div className="flex flex-col justify-center items-center w-full text-center p-4">
+              <h1 className="font-bold text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
+                {image.title}
+              </h1>
+              <p className="font-normal text-sm sm:text-base md:text-base lg:text-lg xl:text-lg 2xl:text-xl w-5/6">
+                {image.description}
+              </p>
+            </div>
           </div>
         ))}
+      </div>
+
+      <div className="flex justify-center items-center h-full">
+        <Link to="/orders">
+          <button className="relative p-1 rounded-full bg-white text-[#20cd8d] isolation-auto z-10 border-2 border-[#20cd8d] before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-[#20cd8d] before:transition-all before:duration-700 before:hover:w-full before:z-[-1] hover:text-white before:hover:rounded-full before:rounded-full overflow-hidden transition-all duration-500 ease-in-out text-xs sm:text-xs md:text-xs lg:text-sm xl:text-lg 2xl:text-base font-inter font-normal">
+            + Become a Client
+          </button>
+        </Link>
       </div>
     </>
   );

@@ -22,6 +22,21 @@ const Recommendations = () => {
         "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
     },
   ];
+
+  const imageSections = [
+    {
+      src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      alt: "Image 1",
+    },
+    {
+      src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      alt: "Image 2",
+    },
+    {
+      src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      alt: "Image 3",
+    },
+  ];
   return (
     <>
       {/* Wrapper Div */}
@@ -75,6 +90,30 @@ const Recommendations = () => {
             <p className="font-normal text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl w-5/6 p-2">
               {section.description}
             </p>
+          </div>
+        ))}
+      </div>
+
+      {/* GETTING STARTED */}
+      <div className="text-center flex flex-col justify-center items-center">
+        <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl m-3 ">
+          GETTING STARTED IS EASY
+        </h1>
+        <p className="text-[#838383] font-normal text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl w-3/4">
+          Together we will find the ideal solution for your company.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 justify-items-center sm:grid-cols-1 md:grid-cols-3 gap-10 m-8">
+        {imageSections.map((image, index) => (
+          <div
+            key={index}
+            className="max-w-[400px] max-h-[900px] w-full relative rounded-lg bg-white/60 shadow-2xl ring-1 ring-gray-900/10 transition-transform duration-300 ease-in-out hover:scale-105 z-10 overflow-hidden"
+          >
+            <img
+              className="object-cover w-full h-full"
+              src={image.src}
+              alt={image.alt}
+            />
           </div>
         ))}
       </div>

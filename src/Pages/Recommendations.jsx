@@ -81,7 +81,7 @@ const Recommendations = () => {
       </div>
 
       {/* Meals */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:mt-16 xl:mt-28 m-5 place-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:mt-16 xl:mt-28 m-5 place-items-center text-white">
         {sections.map((section, index) => (
           <div
             key={index}
@@ -106,7 +106,7 @@ const Recommendations = () => {
 
       {/* GETTING STARTED */}
       <div className="text-center flex flex-col justify-center items-center md:mt-16 xl:mt-28">
-        <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl m-3 ">
+        <h1 className="font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl m-3 ">
           GETTING STARTED IS EASY
         </h1>
         <p className="text-gray-500 font-normal text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl w-3/4">

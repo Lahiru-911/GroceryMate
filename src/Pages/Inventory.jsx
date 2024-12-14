@@ -78,3 +78,35 @@ const Inventory = () => {
 };
 
 export default Inventory;
+
+
+// <div className="overflow-x-auto">
+//   <table className="min-w-full bg-white border border-gray-300">
+//     <thead>
+//       <tr>
+//         <th className="px-4 py-2 text-left border-b">Item</th>
+//         <th className="px-4 py-2 text-left border-b">Quantity</th>
+//         <th className="px-4 py-2 text-left border-b">Status</th>
+//         <th className="px-4 py-2 text-left border-b">Actions</th>
+//       </tr>
+//     </thead>
+//     <tbody>
+//       <tr>
+//         <td className="px-4 py-2 border-b">Bananas</td>
+//         <td className="px-4 py-2 border-b">5</td>
+//         <td className="px-4 py-2 border-b">Running Low</td>
+//         <td className="px-4 py-2 border-b">
+//           <button className="px-2 py-1 text-white bg-blue-500 rounded">Reorder</button>
+//         </td>
+//       </tr>
+//       <tr>
+//         <td className="px-4 py-2 border-b">Milk</td>
+//         <td className="px-4 py-2 border-b">2L</td>
+//         <td className="px-4 py-2 border-b">In Stock</td>
+//         <td className="px-4 py-2 border-b">
+//           <button className="px-2 py-1 text-white bg-green-500 rounded">Update</button>
+//         </td>
+//       </tr>
+//     </tbody>
+//   </table>
+// </div>

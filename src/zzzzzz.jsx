@@ -1,49 +1,27 @@
 import React, { useState } from "react";
 
 const Home = () => {
-  const initialGroceryList = [
-    { id: 1, item: "Apples", category: "Fruits", quantity: 2 },
-    { id: 2, item: "Milk", category: "Dairy", quantity: 1 },
-    { id: 3, item: "Rice", category: "Grains", quantity: 10 },
-    { id: 4, item: "Eggs", category: "Protein", quantity: 12 },
-    { id: 5, item: "Carrots", category: "Vegetables", quantity: 1.5 },
-    { id: 6, item: "Bread", category: "Bakery", quantity: 2 },
-    { id: 7, item: "Chicken", category: "Protein", quantity: 1 },
-    { id: 8, item: "Bananas", category: "Fruits", quantity: 1 },
-    { id: 9, item: "Yogurt", category: "Dairy", quantity: 0.5 },
-    { id: 10, item: "Tomatoes", category: "Vegetables", quantity: 1 },
-    { id: 11, item: "Oats", category: "Grains", quantity: 1 },
-    { id: 12, item: "Salmon", category: "Protein", quantity: 0.5 },
+  const groceryList = [
+    { item: "Apples", category: "Fruits", quantity: "2 kg" },
+    { item: "Milk", category: "Dairy", quantity: "1 L" },
+    { item: "Rice", category: "Grains", quantity: "10 kg" },
+    { item: "Eggs", category: "Protein", quantity: "12" },
+    { item: "Carrots", category: "Vegetables", quantity: "1.5 kg" },
+    { item: "Bread", category: "Bakery", quantity: "2 loaves" },
+    { item: "Chicken", category: "Protein", quantity: "1 kg" },
+    { item: "Bananas", category: "Fruits", quantity: "1 bunch" },
+    { item: "Yogurt", category: "Dairy", quantity: "500 g" },
+    { item: "Tomatoes", category: "Vegetables", quantity: "1 kg" },
+    { item: "Oats", category: "Grains", quantity: "1 kg" },
+    { item: "Salmon", category: "Protein", quantity: "500 g" },
   ];
 
-  const [groceryList, setGroceryList] = useState(initialGroceryList);
+  // State to manage visibility of additional rows
   const [showAllGroceries, setShowAllGroceries] = useState(false);
   const [showAllRunOutItems, setShowAllRunOutItems] = useState(false);
 
   // Default rows to show
   const defaultRows = 5;
-
-  // Handle increase quantity
-  const increaseQuantity = (id) => {
-    setGroceryList((prevList) =>
-      prevList.map((grocery) =>
-        grocery.id === id
-          ? { ...grocery, quantity: grocery.quantity + 1 }
-          : grocery
-      )
-    );
-  };
-
-  // Handle decrease quantity
-  const decreaseQuantity = (id) => {
-    setGroceryList((prevList) =>
-      prevList.map((grocery) =>
-        grocery.id === id && grocery.quantity > 0
-          ? { ...grocery, quantity: grocery.quantity - 1 }
-          : grocery
-      )
-    );
-  };
 
   return (
     <>
@@ -77,13 +55,15 @@ const Home = () => {
       </section>
 
       {/* Current Groceries Section */}
-      <section className="p-5 md:p-10">
-        <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
-          Current Groceries List
-        </h2>
-        <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
-          Manage your grocery items and quantities.
-        </p>
+      <section className="">
+        <div className="p-5 md:p-10">
+          <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+            Current Groceries List
+          </h2>
+          <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
+            Manage your grocery items and quantities.
+          </p>
+        </div>
 
         {/* Table Section */}
         <div className="overflow-auto md:p-10">
@@ -99,9 +79,9 @@ const Home = () => {
             <tbody>
               {groceryList
                 .slice(0, showAllGroceries ? groceryList.length : defaultRows)
-                .map((grocery) => (
+                .map((grocery, index) => (
                   <tr
-                    key={grocery.id}
+                    key={index}
                     className="bg-gray-50 hover:bg-gray-100 text-center text-xs md:text-sm"
                   >
                     <td className="px-2 md:px-4 py-1 md:py-2">
@@ -114,16 +94,10 @@ const Home = () => {
                       {grocery.quantity}
                     </td>
                     <td className="px-2 py-1 md:py-2">
-                      <button
-                        onClick={() => increaseQuantity(grocery.id)}
-                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
-                      >
+                      <button className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg">
                         +
                       </button>
-                      <button
-                        onClick={() => decreaseQuantity(grocery.id)}
-                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
-                      >
+                      <button className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg">
                         -
                       </button>
                     </td>
@@ -151,14 +125,16 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Items About to Run Out Section */}
-      <section className="p-5 md:p-10">
-        <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
-          Items About to Run Out
-        </h2>
-        <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
-          Manage your grocery items that need to be reordered soon.
-        </p>
+      {/* Items About to Run Out */}
+      <section className="">
+        <div className="p-5 md:p-10">
+          <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+            Items About to Run Out
+          </h2>
+          <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
+            Manage your grocery items that need to be reordered soon.
+          </p>
+        </div>
 
         {/* Table Section */}
         <div className="overflow-auto md:p-10">
@@ -178,9 +154,9 @@ const Home = () => {
                   return !isNaN(quantityNumber) && quantityNumber <= 3;
                 })
                 .slice(0, showAllRunOutItems ? groceryList.length : defaultRows)
-                .map((grocery) => (
+                .map((grocery, index) => (
                   <tr
-                    key={grocery.id}
+                    key={index}
                     className="bg-gray-50 hover:bg-gray-100 text-center text-xs md:text-sm"
                   >
                     <td className="px-2 md:px-4 py-1 md:py-2">
@@ -213,4 +189,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default He;

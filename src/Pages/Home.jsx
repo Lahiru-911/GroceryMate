@@ -43,6 +43,14 @@ const Home = () => {
               needs. GroceryMate is here to change that.
             </p>
           </div>
+          {/* Hero Image */}
+          <div className="absolute bottom-0 right-0 z-10">
+            <img
+              className="w-full max-w-xs sm:max-w-md md:max-w-md lg:max-w-xl xl:max-w-7xl h-auto object-contain"
+              src="./public/dd.png"
+              alt="Illustration of a grocery shopping assistant"
+            />
+          </div>
         </div>
       </section>
 
@@ -161,7 +169,7 @@ const Home = () => {
                       {grocery.quantity}
                     </td>
                     <td className="px-2 py-1 md:py-2">
-                      <button className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg">
+                      <button className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2">
                         Reorder
                       </button>
                     </td>

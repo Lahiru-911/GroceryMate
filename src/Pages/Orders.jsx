@@ -1,142 +1,52 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useLocation } from "react-router-dom";
 
 const Orders = () => {
-  const [targetDate, setTargetDate] = useState(
-    localStorage.getItem("targetDate") || null
-  );
-  const [selectedPeriod, setSelectedPeriod] = useState("");
-  const [remainingTime, setRemainingTime] = useState({
-    months: 0,
-    weeks: 0,
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
-
-  // Function to calculate remaining time
-  const calculateTimeLeft = () => {
-    const now = new Date();
-    const target = new Date(targetDate);
-
-    if (target > now) {
-      const totalSeconds = Math.floor((target - now) / 1000);
-
-      const months = Math.floor(totalSeconds / (30 * 24 * 3600));
-      const weeks = Math.floor(
-        (totalSeconds % (30 * 24 * 3600)) / (7 * 24 * 3600)
-      );
-      const days = Math.floor((totalSeconds % (7 * 24 * 3600)) / (24 * 3600));
-      const hours = Math.floor((totalSeconds % (24 * 3600)) / 3600);
-      const minutes = Math.floor((totalSeconds % 3600) / 60);
-      const seconds = totalSeconds % 60;
-
-      setRemainingTime({ months, weeks, days, hours, minutes, seconds });
-    } else {
-      // Reset countdown if time has expired
-      setRemainingTime({
-        months: 0,
-        weeks: 0,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0,
-      });
-      localStorage.removeItem("targetDate");
-    }
-  };
-
-  // Handle setting the target date based on the dropdown
-  const handleSetTargetDate = () => {
-    const now = new Date();
-    let newDate = new Date();
-
-    if (selectedPeriod === "1week") {
-      newDate.setDate(now.getDate() + 7);
-    } else if (selectedPeriod === "2weeks") {
-      newDate.setDate(now.getDate() + 14);
-    } else if (selectedPeriod === "1month") {
-      newDate.setMonth(now.getMonth() + 1);
-    }
-
-    const targetTime = newDate.toISOString();
-    setTargetDate(targetTime);
-    localStorage.setItem("targetDate", targetTime);
-  };
-
-  // Immediately calculate time left when component mounts
-  useEffect(() => {
-    if (targetDate) {
-      calculateTimeLeft(); // Calculate remaining time immediately
-      const interval = setInterval(calculateTimeLeft, 1000); // Update every second
-      return () => clearInterval(interval);
-    }
-  }, [targetDate]);
-
-  // On initial load, check localStorage for target date
-  useEffect(() => {
-    const savedTargetDate = localStorage.getItem("targetDate");
-    if (savedTargetDate) {
-      setTargetDate(savedTargetDate);
-    }
-  }, []);
+  const location = useLocation();
+  const item = location.state?.item; // Retrieve the passed item
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <div className="p-8 border-2 rounded-lg shadow-lg bg-white">
-        <h1 className="text-3xl font-bold text-center mb-6">Build Your Plan</h1>
-
-        {/* Countdown Display */}
-        <div className="grid grid-cols-6 gap-4 text-center">
-          <div>
-            <p className="text-5xl font-semibold">{remainingTime.months}</p>
-            <p className="text-gray-500">Month</p>
-          </div>
-          <div>
-            <p className="text-5xl font-semibold">{remainingTime.weeks}</p>
-            <p className="text-gray-500">Week</p>
-          </div>
-          <div>
-            <p className="text-5xl font-semibold">{remainingTime.days}</p>
-            <p className="text-gray-500">Day</p>
-          </div>
-          <div>
-            <p className="text-5xl font-semibold">{remainingTime.hours}</p>
-            <p className="text-gray-500">Hour</p>
-          </div>
-          <div>
-            <p className="text-5xl font-semibold">{remainingTime.minutes}</p>
-            <p className="text-gray-500">Min</p>
-          </div>
-          <div>
-            <p className="text-5xl font-semibold">{remainingTime.seconds}</p>
-            <p className="text-gray-500">Sec</p>
-          </div>
-        </div>
-
-        {/* Dropdown and Button */}
-        <div className="flex items-center justify-center gap-4 mt-6">
-          <select
-            className="border rounded-lg p-2 focus:outline-none"
-            value={selectedPeriod}
-            onChange={(e) => setSelectedPeriod(e.target.value)}
-          >
-            <option value="" disabled>
-              Select Time Period
-            </option>
-            <option value="1week">1 Week</option>
-            <option value="2weeks">2 Weeks</option>
-            <option value="1month">1 Month</option>
+    <div className="bg-gray-50 min-h-screen flex flex-col">
+      {/* Header */}
+      <header className="bg-white shadow-md p-4 flex items-center justify-between">
+        <h1 className="text-2xl font-semibold text-gray-800">Orders</h1>
+        <div className="flex items-center space-x-4">
+          <input
+            type="text"
+            placeholder="Search orders..."
+            className="border border-gray-300 rounded-md px-4 py-2 focus:ring focus:ring-indigo-500"
+          />
+          <select className="border border-gray-300 rounded-md px-3 py-2">
+            <option>All Orders</option>
+            <option>Pending</option>
+            <option>Completed</option>
+            <option>Cancelled</option>
           </select>
-          <button
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            onClick={handleSetTargetDate}
-            disabled={!selectedPeriod}
-          >
-            Set Plan
-          </button>
         </div>
-      </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1 p-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {item && (
+            <div className="bg-white p-4 shadow rounded-lg border border-gray-200">
+              <h2 className="text-lg font-medium text-gray-800">New Order</h2>
+              <p className="text-sm text-gray-600">
+                <span className="font-medium">Item:</span> {item.item}
+              </p>
+              <p className="text-sm text-gray-600">
+                <span className="font-medium">Category:</span> {item.category}
+              </p>
+              <p className="text-sm text-gray-600">
+                <span className="font-medium">Quantity:</span> {item.quantity}
+              </p>
+              <button className="mt-4 w-full bg-indigo-500 text-white py-2 rounded-md hover:bg-indigo-600">
+                Confirm Order
+              </button>
+            </div>
+          )}
+        </div>
+      </main>
     </div>
   );
 };

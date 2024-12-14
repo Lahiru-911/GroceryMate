@@ -1,6 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  // Function to handle reorder
+  const handleReorder = (grocery) => {
+    navigate("/orders", { state: { item: grocery } });
+  };
+
+  // Initial grocery list
   const initialGroceryList = [
     { id: 1, item: "Apples", category: "Fruits", quantity: 2 },
     { id: 2, item: "Milk", category: "Dairy", quantity: 1 },
@@ -20,10 +29,10 @@ const Home = () => {
   const [showAllGroceries, setShowAllGroceries] = useState(false);
   const [showAllRunOutItems, setShowAllRunOutItems] = useState(false);
 
-  // Default rows to show
+  // Default number of rows to show
   const defaultRows = 5;
 
-  // Handle increase quantity
+  // Function to increase quantity
   const increaseQuantity = (id) => {
     setGroceryList((prevList) =>
       prevList.map((grocery) =>
@@ -34,7 +43,7 @@ const Home = () => {
     );
   };
 
-  // Handle decrease quantity
+  // Function to decrease quantity
   const decreaseQuantity = (id) => {
     setGroceryList((prevList) =>
       prevList.map((grocery) =>
@@ -173,11 +182,14 @@ const Home = () => {
             </thead>
             <tbody>
               {groceryList
-                .filter((grocery) => {
-                  const quantityNumber = parseFloat(grocery.quantity);
-                  return !isNaN(quantityNumber) && quantityNumber <= 3;
-                })
-                .slice(0, showAllRunOutItems ? groceryList.length : defaultRows)
+                .filter((grocery) => grocery.quantity <= 1)
+                .slice(
+                  0,
+                  showAllRunOutItems
+                    ? groceryList.filter((grocery) => grocery.quantity <= 1)
+                        .length
+                    : defaultRows
+                )
                 .map((grocery) => (
                   <tr
                     key={grocery.id}
@@ -193,8 +205,11 @@ const Home = () => {
                       {grocery.quantity}
                     </td>
                     <td className="px-2 py-1 md:py-2">
-                      <button className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2">
-                        ReOrder
+                      <button
+                        onClick={() => handleReorder(grocery)}
+                        className="px-6 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-lg m-2 text-sm md:text-lg"
+                      >
+                        Reorder
                       </button>
                     </td>
                   </tr>
@@ -207,13 +222,6 @@ const Home = () => {
           >
             {showAllRunOutItems ? "Show Less" : "See More"}
           </button>
-        </div>
-      </section>
-
-      {/* Advise WordTagline */}
-      <section>
-        <div className="bg-[#20cd8d] w-full min-h-[100px] md:min-h-[100px] lg:min-h-[150px]  ">
-          
         </div>
       </section>
     </>

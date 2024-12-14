@@ -170,7 +170,7 @@ const Home = () => {
                     </td>
                     <td className="px-2 py-1 md:py-2">
                       <button className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2">
-                        Reorder
+                        ReOrder
                       </button>
                     </td>
                   </tr>

@@ -65,3 +65,29 @@ Users can easily manage their grocery items through a web application by:
   - The system reduces **food waste** by ensuring users only order what they need.
   - Promotes **efficient grocery management**, saving users time and reducing the mental load of managing household supplies.
 
+
+
+# GroceryMate - Use Case Diagram
+
+## Introduction
+GroceryMate is a Smart Grocery Delivery System designed to simplify household grocery management. The system allows users to manually manage their grocery inventory, set thresholds for low-stock alerts, and automate reorder suggestions. This **Use Case Diagram** illustrates the primary interactions between the user and the system.
+
+## Actors
+- **User**: The person who manages their grocery inventory.
+- **System**: The GroceryMate system responsible for tracking inventory and generating alerts/orders.
+
+## Use Cases
+1. **Login/Registration**: User logs into the system or registers a new account.
+2. **Manage Inventory**:
+   - **Add Item**: User adds a new grocery item to the inventory.
+   - **Update Item**: User updates the quantity of an existing grocery item.
+   - **Delete Item**: User removes an item from the inventory.
+3. **Set Thresholds**: User defines the minimum quantity for each item (when the system should alert them to reorder).
+4. **View Inventory**: User can view all the items in their inventory, along with quantities and categories.
+5. **Receive Low Stock Alerts**: The system notifies the user when an item’s stock is below the defined threshold.
+6. **View Suggested Orders**: The system generates a list of items that need to be reordered based on the thresholds.
+7. **Approve/Modify Order**: User can review, approve, or modify the suggested order.
+8. **Place Order**: User places the order for groceries through the system.
+
+
+

@@ -164,13 +164,12 @@ const Inventory = () => {
   return (
     <>
       {/* Current Groceries Section */}
-      <section className="p-5 md:p-10">
-        <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
-          Current Groceries List
-        </h2>
-        <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
-          Manage your grocery items and quantities.
-        </p>
+      <section className="">
+        <div className="flex justify-center items-center w-full h-32 bg-[#182527]">
+          <h2 className="text-white font-medium text-center text-base sm:text-lg md:text-2xl lg:text-4xl 2xl:text-6xl italic">
+            Inventory Management
+          </h2>
+        </div>
 
         {/* Table Section */}
         <div className="overflow-auto md:p-10">

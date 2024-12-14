@@ -9,11 +9,11 @@ const Inventory = () => {
         </h2>
       </div>
 
-      <table className="min-w-full table-auto border-separate border-spacing-0.5">
+     <table className="min-w-full table-auto border-separate border-spacing-0.5">
         <thead>
           <tr className="bg-[#20cd8d] text-white">
             <th className="px-4 py-2 text-left text-sm font-semibold">
-              Item Name
+               Item Name
             </th>
             <th className="px-4 py-2 text-left text-sm font-semibold">
               Quantity

@@ -209,6 +209,13 @@ const Home = () => {
           </button>
         </div>
       </section>
+
+      {/* Advise WordTagline */}
+      <section>
+        <div className="bg-[#20cd8d] w-full min-h-[100px] md:min-h-[100px] lg:min-h-[150px]  ">
+          
+        </div>
+      </section>
     </>
   );
 };

@@ -3,7 +3,7 @@ const About = () => {
     {
       title: "Innovation",
       content:
-        "We embrace innovation as the lifeblood of our company. We continuously seek new ideas, technologies, and approaches to deliver cutting-edge solutions",
+        "We are committed to leveraging the latest technologies to stay ahead of the curve, constantly improving our platform to provide smarter and more efficient services.",
     },
     {
       title: "Integrity",
@@ -13,12 +13,12 @@ const About = () => {
     {
       title: "Customer Centricity",
       content:
-        "Our customers are at the heart of everything we do. We listen attentively to their needs, collaborate closely to understand their goals",
+        "We prioritize our users' needs by offering intuitive solutions that save time, reduce waste, and simplify their daily routines.",
     },
     {
-      title: "Continuous Learning",
+      title: "Sustainability",
       content:
-        "We foster a culture of continuous learning and growth. Our team is committed to staying ahead of the curve, expanding our skills and embracing new technologies",
+        "At GroceryMate, we strive to create a sustainable future by promoting mindful consumption and reducing food waste through intelligent grocery management.",
     },
   ];
   return (
@@ -29,24 +29,15 @@ const About = () => {
           <h1 className="text-white font-normal text-center m-2 p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
             Transforming Grocery Shopping
           </h1>
-          <p className="text-justify font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-            unde, quaerat, autem dolores quo veritatis vitae corrupti vel
-            repellendus minus, qui culpa. Minima perferendis vero, maxime at
-            eligendi ratione tenetur? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Maiores unde, quaerat, autem dolores quo veritatis
-            vitae corrupti vel repellendus minus, qui culpa. Minima perferendis
-            vero, maxime at eligendi ratione tenetur? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Maiores unde, quaerat, autem dolores
-            quo veritatis vitae corrupti vel repellendus minus, qui culpa.
-            Minima perferendis vero, maxime at eligendi ratione tenetur? Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Maiores unde,
-            quaerat, autem dolores quo veritatis vitae corrupti vel repellendus
-            minus, qui culpa. Minima perferendis vero, maxime at eligendi
-            ratione tenetur Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Maiores unde, quaerat, autem dolores quo veritatis vitae
-            corrupti vel repellendus minus, qui culpa. Minima perferendis vero,
-            maxime at eligendi ratione tenetur Lorem{" "}
+          <p className="text-center font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
+            At GroceryMate, we are redefining the way people manage their
+            household groceries. Gone are the days of last-minute shopping trips
+            or forgotten items. Our platform combines innovation with
+            simplicity, delivering a seamless experience for tracking, managing,
+            and automating your grocery needs. By predicting your consumption
+            patterns and ensuring timely restocking, GroceryMate transforms
+            grocery shopping from a chore into an effortless part of your daily
+            life.
           </p>
         </div>
       </div>
@@ -57,31 +48,27 @@ const About = () => {
           <h1 className="text-white font-normal text-center m-2 p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
             Brief description about the platform
           </h1>
-          <p className="text-justify font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-            unde, quaerat, autem dolores quo veritatis vitae corrupti vel
-            repellendus minus, qui culpa. Minima perferendis vero, maxime at
-            eligendi ratione tenetur? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Maiores unde, quaerat, autem dolores quo veritatis
-            vitae corrupti vel repellendus minus, qui culpa. Minima perferendis
-            vero, maxime at eligendi ratione tenetur? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Maiores unde, quaerat, autem dolores
-            quo v{" "}
+          <p className="text-center font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
+            GroceryMate is a cutting-edge platform designed to revolutionize
+            grocery management. Powered by advanced machine learning, real-time
+            tracking, and smart analytics, our system predicts when your
+            groceries will run out and automates the reordering process. Whether
+            you're managing essentials for your family or planning ahead,
+            GroceryMate ensures that your kitchen is always stocked and your
+            shopping is stress-free. With user-friendly features and a focus on
+            convenience, we aim to make your life easier while reducing food
+            waste and saving valuable time.
           </p>
 
-          <h1 className="text-white font-normal text-center m-2 p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
+          <h1 className="text-white font-normal text-center  p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
             Mission & Vision
           </h1>
-          <p className="text-justify font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-            unde, quaerat, autem dolores quo veritatis vitae corrupti vel
-            repellendus minus, qui culpa. Minima perferendis vero, maxime at
-            eligendi ratione tenetur? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Maiores unde, quaerat, autem dolores quo veritatis
-            vitae corrupti vel repellendus minus, qui culpa. Minima perferendis
-            vero, maxime at eligendi ratione tenetur? Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Maiores unde, quaerat, autem dolores
-            quo v{" "}
+          <p className="text-center font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
+            Our mission is to simplify everyday life by providing smarter
+            grocery solutions that eliminate the hassle of shopping while
+            promoting sustainability. Our vision is to be the world’s most
+            trusted grocery management platform, setting new standards for
+            convenience, reliability, and sustainability in modern households.
           </p>
         </div>
       </div>

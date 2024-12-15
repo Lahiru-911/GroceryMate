@@ -4,28 +4,22 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
 
+  // Function to handle reorder for a single item
+  const handleReorder = (grocery) => {
+    navigate("/orders", { state: { item: grocery } });
+  };
 
+  // Function to handle reorder for all items about to run out
+  const handleReorderAll = () => {
+    const runOutItems = groceryList.filter((grocery) => grocery.quantity <= 1);
 
-
-// Function to handle reorder for a single item
-const handleReorder = (grocery) => {
-  navigate("/orders", { state: { item: grocery } });
-};
-
-// Function to handle reorder for all items about to run out
-const handleReorderAll = () => {
-  const runOutItems = groceryList.filter((grocery) => grocery.quantity <= 1);
-
-  if (runOutItems.length > 0) {
-    // Navigate to the orders page with all run-out items
-    navigate("/orders", { state: { items: runOutItems } });
-  } else {
-    alert("No items to reorder!");
-  }
-};
-
-
-
+    if (runOutItems.length > 0) {
+      // Navigate to the orders page with all run-out items
+      navigate("/orders", { state: { items: runOutItems } });
+    } else {
+      alert("No items to reorder!");
+    }
+  };
 
   // Initial grocery list
   const initialGroceryList = [

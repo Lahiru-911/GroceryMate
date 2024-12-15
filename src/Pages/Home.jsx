@@ -228,21 +228,22 @@ const Home = () => {
                 ))}
             </tbody>
           </table>
-          <button
-            onClick={() => setShowAllRunOutItems(!showAllRunOutItems)}
-            className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2"
-          >
-            {showAllRunOutItems ? "Show Less" : "See More"}
-          </button>
+          <div className="flex  justify-between items-center">
+            <button
+              onClick={() => setShowAllRunOutItems(!showAllRunOutItems)}
+              className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2"
+            >
+              {showAllRunOutItems ? "Show Less" : "See More"}
+            </button>
+            {/* Reorder All Button */}
+            <button
+              onClick={handleReorderAll}
+              className=" bg-[#20cd8d] hover:bg-[#1db97f] text-white rounded-full px-6 py-2 text-lg shadow-lg"
+            >
+              Reorder All
+            </button>
+          </div>
         </div>
-
-        {/* Reorder All Button */}
-        <button
-          onClick={handleReorderAll}
-          className="fixed bottom-5 right-5 bg-[#20cd8d] hover:bg-[#1db97f] text-white rounded-full px-8 py-3 text-lg shadow-lg"
-        >
-          Reorder All
-        </button>
       </section>
     </>
   );

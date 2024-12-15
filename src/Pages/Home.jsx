@@ -219,7 +219,7 @@ const Home = () => {
                     <td className="px-2 py-1 md:py-2">
                       <button
                         onClick={() => handleReorder(grocery)}
-                        className="px-6 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-lg m-2 text-sm md:text-lg"
+                        className="px-6 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
                       >
                         Reorder
                       </button>

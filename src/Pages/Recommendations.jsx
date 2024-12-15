@@ -4,23 +4,23 @@ const Recommendations = () => {
     {
       image:
         "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      title: "Plenty of protein",
+      title: "Save Time on Shopping",
       description:
-        "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
+        "Say goodbye to frequent grocery store trips. Our system predicts your needs and delivers them right to your doorstep.",
     },
     {
       image:
         "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      title: "Plenty of protein",
+      title: "Reduce Food Waste",
       description:
-        "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
+        "By automatically ordering what you need based on consumption patterns, we help you avoid overbuying and minimize food waste.",
     },
     {
       image:
         "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      title: "Plenty of protein",
+      title: "Tailored to Your Needs",
       description:
-        "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
+        "GroceryMate customizes your grocery orders based on your preferences, dietary needs, and usage patterns, making it a highly personalized service.",
     },
   ];
 
@@ -28,23 +28,23 @@ const Recommendations = () => {
     {
       src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       alt: "Image 1",
-      title: "Connect with Us",
+      title: "Analyze Consumption Patterns",
       description:
-        "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
+        "We track your daily grocery usage to understand your consumption patterns and predict when you'll need more supplies.",
     },
     {
       src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       alt: "Image 2",
-      title: "Connect with Us",
+      title: "Automatic Orders",
       description:
-        "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
+        "Based on your usage, we automatically place orders for essential groceries to ensure timely delivery before you run out.",
     },
     {
       src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       alt: "Image 3",
-      title: "Connect with Us",
+      title: "Timely Delivery",
       description:
-        "Quality protein matters in a meal delivery service, whether it's chicken, steak, fish, or plant-based.",
+        "Your groceries are delivered right on time, so your pantry stays stocked without the need for last-minute shopping trips.",
     },
   ];
   return (
@@ -107,10 +107,12 @@ const Recommendations = () => {
       {/* GETTING STARTED */}
       <div className="text-center flex flex-col justify-center items-center md:mt-16 xl:mt-28">
         <h1 className="font-bold text-white text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl m-3 ">
-          GETTING STARTED IS EASY
+          Grocery Management in 3 Easy Steps
         </h1>
         <p className="text-gray-500 font-normal text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl w-3/4">
-          Together we will find the ideal solution for your company.
+          GroceryMate helps you manage your grocery needs efficiently and
+          conveniently. Follow these simple steps to ensure you never run out of
+          essentials.
         </p>
       </div>
       <div className="grid grid-cols-1 justify-items-center sm:grid-cols-1 md:grid-cols-3 gap-10 m-8">

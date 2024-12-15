@@ -4,10 +4,28 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
 
-  // Function to handle reorder
-  const handleReorder = (grocery) => {
-    navigate("/orders", { state: { item: grocery } });
-  };
+
+
+
+// Function to handle reorder for a single item
+const handleReorder = (grocery) => {
+  navigate("/orders", { state: { item: grocery } });
+};
+
+// Function to handle reorder for all items about to run out
+const handleReorderAll = () => {
+  const runOutItems = groceryList.filter((grocery) => grocery.quantity <= 1);
+
+  if (runOutItems.length > 0) {
+    // Navigate to the orders page with all run-out items
+    navigate("/orders", { state: { items: runOutItems } });
+  } else {
+    alert("No items to reorder!");
+  }
+};
+
+
+
 
   // Initial grocery list
   const initialGroceryList = [
@@ -161,7 +179,7 @@ const Home = () => {
       </section>
 
       {/* Items About to Run Out Section */}
-      <section className="p-5 md:p-10">
+      <section className="p-5 md:p-10 relative">
         <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
           Items About to Run Out
         </h2>
@@ -223,6 +241,14 @@ const Home = () => {
             {showAllRunOutItems ? "Show Less" : "See More"}
           </button>
         </div>
+
+        {/* Reorder All Button */}
+        <button
+          onClick={handleReorderAll}
+          className="fixed bottom-5 right-5 bg-[#20cd8d] hover:bg-[#1db97f] text-white rounded-full px-8 py-3 text-lg shadow-lg"
+        >
+          Reorder All
+        </button>
       </section>
     </>
   );

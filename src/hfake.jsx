@@ -1,27 +1,70 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Home = () => {
-  const groceryList = [
-    { item: "Apples", category: "Fruits", quantity: "2 kg" },
-    { item: "Milk", category: "Dairy", quantity: "1 L" },
-    { item: "Rice", category: "Grains", quantity: "10 kg" },
-    { item: "Eggs", category: "Protein", quantity: "12" },
-    { item: "Carrots", category: "Vegetables", quantity: "1.5 kg" },
-    { item: "Bread", category: "Bakery", quantity: "2 loaves" },
-    { item: "Chicken", category: "Protein", quantity: "1 kg" },
-    { item: "Bananas", category: "Fruits", quantity: "1 bunch" },
-    { item: "Yogurt", category: "Dairy", quantity: "500 g" },
-    { item: "Tomatoes", category: "Vegetables", quantity: "1 kg" },
-    { item: "Oats", category: "Grains", quantity: "1 kg" },
-    { item: "Salmon", category: "Protein", quantity: "500 g" },
+const Ho = () => {
+  const navigate = useNavigate();
+
+  // Function to handle reorder for a single item
+  const handleReorder = (grocery) => {
+    navigate("/orders", { state: { item: grocery } });
+  };
+
+  // Function to handle reorder for all items about to run out
+  const handleReorderAll = () => {
+    const runOutItems = groceryList.filter((grocery) => grocery.quantity <= 1);
+
+    if (runOutItems.length > 0) {
+      // Navigate to the orders page with all run-out items
+      navigate("/orders", { state: { items: runOutItems } });
+    } else {
+      alert("No items to reorder!");
+    }
+  };
+
+  // Initial grocery list
+  const initialGroceryList = [
+    { id: 1, item: "Apples", category: "Fruits", quantity: 2 },
+    { id: 2, item: "Milk", category: "Dairy", quantity: 1 },
+    { id: 3, item: "Rice", category: "Grains", quantity: 10 },
+    { id: 4, item: "Eggs", category: "Protein", quantity: 12 },
+    { id: 5, item: "Carrots", category: "Vegetables", quantity: 1.5 },
+    { id: 6, item: "Bread", category: "Bakery", quantity: 2 },
+    { id: 7, item: "Chicken", category: "Protein", quantity: 1 },
+    { id: 8, item: "Bananas", category: "Fruits", quantity: 1 },
+    { id: 9, item: "Yogurt", category: "Dairy", quantity: 0.5 },
+    { id: 10, item: "Tomatoes", category: "Vegetables", quantity: 1 },
+    { id: 11, item: "Oats", category: "Grains", quantity: 1 },
+    { id: 12, item: "Salmon", category: "Protein", quantity: 0.5 },
   ];
 
-  // State to manage visibility of additional rows
+  const [groceryList, setGroceryList] = useState(initialGroceryList);
   const [showAllGroceries, setShowAllGroceries] = useState(false);
   const [showAllRunOutItems, setShowAllRunOutItems] = useState(false);
 
-  // Default rows to show
+  // Default number of rows to show
   const defaultRows = 5;
+
+  // Function to increase quantity
+  const increaseQuantity = (id) => {
+    setGroceryList((prevList) =>
+      prevList.map((grocery) =>
+        grocery.id === id
+          ? { ...grocery, quantity: grocery.quantity + 1 }
+          : grocery
+      )
+    );
+  };
+
+  // Function to decrease quantity
+  const decreaseQuantity = (id) => {
+    setGroceryList((prevList) =>
+      prevList.map((grocery) =>
+        grocery.id === id && grocery.quantity > 0
+          ? { ...grocery, quantity: grocery.quantity - 1 }
+          : grocery
+      )
+    );
+  };
 
   return (
     <>
@@ -55,15 +98,13 @@ const Home = () => {
       </section>
 
       {/* Current Groceries Section */}
-      <section className="">
-        <div className="p-5 md:p-10">
-          <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
-            Current Groceries List
-          </h2>
-          <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
-            Manage your grocery items and quantities.
-          </p>
-        </div>
+      <section className="p-5 md:p-10">
+        <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+          Current Groceries List
+        </h2>
+        <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
+          Manage your grocery items and quantities.
+        </p>
 
         {/* Table Section */}
         <div className="overflow-auto md:p-10">
@@ -79,9 +120,9 @@ const Home = () => {
             <tbody>
               {groceryList
                 .slice(0, showAllGroceries ? groceryList.length : defaultRows)
-                .map((grocery, index) => (
+                .map((grocery) => (
                   <tr
-                    key={index}
+                    key={grocery.id}
                     className="bg-gray-50 hover:bg-gray-100 text-center text-xs md:text-sm"
                   >
                     <td className="px-2 md:px-4 py-1 md:py-2">
@@ -94,10 +135,16 @@ const Home = () => {
                       {grocery.quantity}
                     </td>
                     <td className="px-2 py-1 md:py-2">
-                      <button className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg">
+                      <button
+                        onClick={() => increaseQuantity(grocery.id)}
+                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
+                      >
                         +
                       </button>
-                      <button className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg">
+                      <button
+                        onClick={() => decreaseQuantity(grocery.id)}
+                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
+                      >
                         -
                       </button>
                     </td>
@@ -125,16 +172,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Items About to Run Out */}
-      <section className="">
-        <div className="p-5 md:p-10">
-          <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
-            Items About to Run Out
-          </h2>
-          <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
-            Manage your grocery items that need to be reordered soon.
-          </p>
-        </div>
+      {/* Items About to Run Out Section */}
+      <section className="p-5 md:p-10 relative">
+        <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+          Items About to Run Out
+        </h2>
+        <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
+          Manage your grocery items that need to be reordered soon.
+        </p>
 
         {/* Table Section */}
         <div className="overflow-auto md:p-10">
@@ -149,14 +194,17 @@ const Home = () => {
             </thead>
             <tbody>
               {groceryList
-                .filter((grocery) => {
-                  const quantityNumber = parseFloat(grocery.quantity);
-                  return !isNaN(quantityNumber) && quantityNumber <= 3;
-                })
-                .slice(0, showAllRunOutItems ? groceryList.length : defaultRows)
-                .map((grocery, index) => (
+                .filter((grocery) => grocery.quantity <= 1)
+                .slice(
+                  0,
+                  showAllRunOutItems
+                    ? groceryList.filter((grocery) => grocery.quantity <= 1)
+                        .length
+                    : defaultRows
+                )
+                .map((grocery) => (
                   <tr
-                    key={index}
+                    key={grocery.id}
                     className="bg-gray-50 hover:bg-gray-100 text-center text-xs md:text-sm"
                   >
                     <td className="px-2 md:px-4 py-1 md:py-2">
@@ -169,91 +217,36 @@ const Home = () => {
                       {grocery.quantity}
                     </td>
                     <td className="px-2 py-1 md:py-2">
-                      <button className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2">
-                        ReOrder
+                      <button
+                        onClick={() => handleReorder(grocery)}
+                        className="px-6 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
+                      >
+                        Reorder
                       </button>
                     </td>
                   </tr>
                 ))}
             </tbody>
           </table>
-          <button
-            onClick={() => setShowAllRunOutItems(!showAllRunOutItems)}
-            className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2"
-          >
-            {showAllRunOutItems ? "Show Less" : "See More"}
-          </button>
+          <div className="flex  justify-between items-center">
+            <button
+              onClick={() => setShowAllRunOutItems(!showAllRunOutItems)}
+              className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2"
+            >
+              {showAllRunOutItems ? "Show Less" : "See More"}
+            </button>
+            {/* Reorder All Button */}
+            <button
+              onClick={handleReorderAll}
+              className=" bg-[#20cd8d] hover:bg-[#1db97f] text-white rounded-full px-6 py-2 text-lg shadow-lg"
+            >
+              Reorder All
+            </button>
+          </div>
         </div>
       </section>
     </>
   );
 };
 
-export default He;
-
-
-
-
-
-
-
-
-
-
-
-
-
-import { Link } from "react-router-dom";
-
-const NavBar = () => {
-  return (
-    <nav className="bg-[#20cd8d] p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-white text-xl font-bold">GroceryMate</div>
-        <ul className="flex space-x-6">
-          <li>
-            <Link
-              to="/"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/inventory"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
-              Inventory
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/orders"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
-              Orders
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/recommendations"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
-              Recommendations
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/about"
-              className="text-white hover:text-gray-200 transition duration-300"
-            >
-              About
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  );
-};
-export default 
+export default Ho;

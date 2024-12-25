@@ -3,14 +3,17 @@ import AppRouter from "./Routes/Router";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer/Footer";
 import "./app.css";
+import { NextUIProvider } from "@nextui-org/react";
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <AppRouter />
-      <Footer/>
-    </Router>
+    <NextUIProvider>
+      <Router>
+        <NavBar />
+        <AppRouter />
+        {/* <Footer /> */}
+      </Router>
+    </NextUIProvider>
   );
 }
 

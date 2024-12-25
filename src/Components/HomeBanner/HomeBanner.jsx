@@ -8,7 +8,7 @@ function HomeBanner() {
     fade: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 3000,
     speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -16,7 +16,7 @@ function HomeBanner() {
 
   const images = [
     {
-      src: "https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      src: "https://essstr.blob.core.windows.net/uiimg/Carousel/Christmas2024/ChristmasCarousel2024_Web.jpg",
     },
     {
       src: "https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 ",
@@ -30,13 +30,13 @@ function HomeBanner() {
   ];
 
   return (
-    <div className="mt-2 flex justify-center items-center mx-2">
+    <div className="flex justify-center items-center mx-28">
       <div className="w-full max-w-full h-[700px] overflow-hidden">
         <Slider {...settings}>
           {images.map((image, index) => (
             <div
               key={index}
-              className="w-full max-h-[590px] rounded-2xl overflow-hidden"
+              className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[590px] rounded-2xl overflow-hidden"
             >
               <img
                 src={image.src}

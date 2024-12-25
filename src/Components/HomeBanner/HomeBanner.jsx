@@ -22,12 +22,6 @@ function HomeBanner() {
       src: "https://essstr.blob.core.windows.net/uiimg/Carousel/Nexus_Online_Promotion_2k24_home_web.jpg",
     },
     {
-      src: "https://i0.wp.com/onlinekade.lk/wp-content/uploads/Christmas-Banner-Desktop.webp?fit=1800%2C540&ssl=1",
-    },
-    {
-      src: "https://objectstorage.ap-mumbai-1.oraclecloud.com/n/softlogicbicloud/b/cdn/o/site-images/664a9f1cd9cd2.webp",
-    },
-    {
       src: "https://spar2u.lk/cdn/shop/files/SPAR_Local_web_banner_-_1903x800pix_1903x800.jpg?v=1731409178",
     },
     {
@@ -36,23 +30,20 @@ function HomeBanner() {
   ];
 
   return (
-    <div className="mt-3 mx-2 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-32">
-        <Slider {...settings}>
-          {images.map((image, index) => (
-            <div
-              key={index}
-              className="group overflow-hidden"
-            >
-              <div className="w-full h-[590px] ">
-                <img
-                  src={image.src}
-                  alt={`Slide ${index + 1}`}
-                  className="w-full h-full object-cover rounded-2xl"
-                />
-              </div>
+    <div className="mt-2 mx-2 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
+      <Slider {...settings}>
+        {images.map((image, index) => (
+          <div key={index} className="group overflow-hidden">
+            <div className="w-full h-auto ">
+              <img
+                src={image.src}
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-cover rounded-2xl"
+              />
             </div>
-          ))}
-        </Slider>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 }

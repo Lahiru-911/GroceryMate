@@ -12,6 +12,7 @@ function HomeBanner() {
     speed: 700,
     slidesToShow: 1,
     slidesToScroll: 1,
+    lazyLoad: 'ondemand',
   };
 
   const images = [
@@ -30,7 +31,7 @@ function HomeBanner() {
   ];
 
   return (
-    <div className="mt-2 mx-2 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
+    <div className="max-h-screen mt-2 mb-10 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index} className="group overflow-hidden">
@@ -50,42 +51,6 @@ function HomeBanner() {
 
 export default HomeBanner;
 
-// <div className="px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-14">
-//   <Slider {...settings}>
-//     {teamMembers.map((member, index) => (
-//       <div
-//         key={index}
-//         className="px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 relative group overflow-hidden"
-//       >
-//         <div className="relative w-full h-96">
-//           {" "}
-//           {/* Set a fixed height here */}
-//           <img
-//             className="rounded-lg w-full h-full object-cover"
-//             src={member.src}
-//             alt={member.name}
-//           />
-//         </div>
-//       </div>
-//     ))}
-//   </Slider>
-// </div>;
 
-// <div className="flex justify-center items-center mt-3 mx-2 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-32">
-//       <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[620px] overflow-hidden">
-//         <Slider {...settings}>
-//           {images.map((image, index) => (
-//             <div
-//               key={index}
-//               className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[620px] rounded-2xl overflow-hidden"
-//             >
-//               <img
-//                 src={image.src}
-//                 alt={`Slide ${index + 1}`}
-//                 className="w-full h-full object-cover rounded-2xl"
-//               />
-//             </div>
-//           ))}
-//         </Slider>
-//       </div>
-//     </div>
+{/* <div className="max-h-screen mt-2 mb-10 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20 sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[650px]"></div> */}
+

@@ -6,9 +6,11 @@ const Home = () => {
     <>
       <HomeBanner />
       <section>
-        <h2 className="font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-5xl">
-          Current Groceries List
-        </h2>
+        <div className="mt-2 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
+          <h2 className="font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
+            Current Groceries List
+          </h2>
+        </div>
       </section>
     </>
   );

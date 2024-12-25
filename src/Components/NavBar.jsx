@@ -24,21 +24,10 @@ export const NavBar = () => {
 };
 
 export default function App() {
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
+  const menuItems = ["Home", "Inventory", "Orders", "Recommendations", "About"];
 
   return (
-    <Navbar disableAnimation isBordered>
+    <Navbar disableAnimation isBordered className="border-[#20cd8d]">
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
@@ -46,7 +35,7 @@ export default function App() {
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           {/* logo mobile */}
-          <p className="font-bold text-inherit">ACME</p>
+          <p className="font-bold text-inherit">GroceryMate</p>
         </NavbarBrand>
       </NavbarContent>
 
@@ -79,17 +68,6 @@ export default function App() {
           <Link color="foreground" href="/about">
             About
           </Link>
-        </NavbarItem>
-      </NavbarContent>
-
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="warning" href="#" variant="flat">
-            Sign Up
-          </Button>
         </NavbarItem>
       </NavbarContent>
 

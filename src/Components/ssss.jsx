@@ -73,3 +73,117 @@
         </div>
       </div>
     </section>
+
+
+
+
+
+
+
+
+
+home before 
+
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import HomeBanner from "../Components/HomeBanner/HomeBanner";
+import { FaCartShopping } from "react-icons/fa6";
+
+const Hme = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false, // Allow animations to trigger multiple times
+    });
+
+    const handleScroll = () => {
+      AOS.refresh(); // Refresh AOS animations on scroll
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const shops = [
+    {
+      imgSrc:
+        "https://cargillsonline.com/VendorItems/Banner/DySec-OE1mczVL8Ximage%20(1).png",
+    },
+    {
+      imgSrc:
+        "https://cargillsonline.com/VendorItems/Banner/DySec-Gf5rNDlbxnprasara%20(1).png",
+    },
+    {
+      imgSrc:
+        "https://cargillsonline.com/VendorItems/Banner/DySec-ukG4Tf6rND600x350-keels-krest.png",
+    },
+    {
+      imgSrc:
+        "https://cargillsonline.com/VendorItems/Banner/DySec-EiW7KnxblZknorr-banner.png",
+    },
+    {
+      imgSrc:
+        "https://cargillsonline.com/VendorItems/Banner/DySec-DZmcyUK7WiRide-Cargills-online-banner.png",
+    },
+    {
+      imgSrc:
+        "https://cargillsonline.com/VendorItems/Banner/DySec-akY9MpAdR2kotmal.png",
+    },
+  ];
+  return (
+    <>
+      <HomeBanner />
+
+      <section>
+        <div className="mt-2 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
+          <div className="flex items-center gap-2">
+            <h2 className="font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
+              Featured Stores
+            </h2>
+            <FaCartShopping size={20} />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-items-center mt-5">
+            {shops.map((shop, index) => (
+              <div
+                key={index}
+                data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="1000"
+                className=" max-w-[500px] max-h-[200px] rounded-3xl"
+              >
+                <a href="">
+                  <img
+                    className="w-full h-full object-cover rounded-3xl"
+                    src={shop.imgSrc}
+                    alt=""
+                  />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="flex justify-center items-center h-screen mt-2 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
+          <div className="w-full  h-screen border border-gray-300 rounded-lg shadow-lg overflow-hidden">
+            <iframe
+              src="https://www.residuesolution.com/"
+              title="Embedded Website"
+              className="w-full h-full"
+              frameBorder="0"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default ;

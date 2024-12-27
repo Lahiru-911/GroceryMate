@@ -163,24 +163,22 @@ const Inventory = () => {
 
   return (
     <>
-      {/* Current Groceries Section */}
-      <section className="">
-        <div className="flex justify-center items-center w-full h-32 bg-[#182527]">
-          <h2 className="text-white font-medium text-center text-base sm:text-lg md:text-2xl lg:text-4xl 2xl:text-6xl italic">
+      {/* Main Table */}
+      <section>
+        <div className="flex justify-center items-center w-full h-40 shadow-lg bg-[#1b1b1b]">
+          <h2 className="text-white font-semibold text-center text-lg sm:text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl italic tracking-wide">
             Inventory Management
           </h2>
         </div>
-
-        {/* Table Section */}
-        <div className="overflow-auto md:p-10">
-          <table className="min-w-full table-auto border-separate border-spacing-0.5 mt-2 lg:mt-5">
+        <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
+          <table className="min-w-full table-auto border-separate border-spacing-y-2 mt-5">
             <thead>
-              <tr className="bg-[#20cd8d] text-white font-semibold text-xs md:text-sm lg:text-lg">
-                <th className="px-4 py-2">Item Name</th>
-                <th className="px-4 py-2">Category</th>
-                <th className="px-4 py-2">Quantity</th>
-                <th className="px-4 py-2">Status</th>
-                <th className="px-4 py-2">Actions</th>
+              <tr className="bg-white text-gray-800 font-semibold text-sm md:text-md lg:text-lg shadow-md">
+                <th className="px-6 py-3 text-left">Item Name</th>
+                <th className="px-6 py-3 text-left">Category</th>
+                <th className="px-6 py-3 text-center">Quantity</th>
+                <th className="px-6 py-3 text-center">Status</th>
+                <th className="px-6 py-3 text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -189,36 +187,32 @@ const Inventory = () => {
                 .map((grocery) => (
                   <tr
                     key={grocery.id}
-                    className="bg-gray-50 hover:bg-gray-100 text-center text-xs md:text-sm"
+                    className="bg-white hover:bg-gray-100 text-gray-700 text-sm md:text-md shadow-sm rounded-lg"
                   >
-                    <td className="px-2 md:px-4 py-1 md:py-2">
-                      {grocery.item}
-                    </td>
-                    <td className="px-2 md:px-4 py-1 md:py-2">
-                      {grocery.category}
-                    </td>
-                    <td className="px-2 md:px-4 py-1 md:py-2">
+                    <td className="px-6 py-3">{grocery.item}</td>
+                    <td className="px-6 py-3">{grocery.category}</td>
+                    <td className="px-6 py-3 text-center">
                       {grocery.quantity}
                     </td>
                     <td
-                      className={`px-2 md:px-4 py-1 md:py-2 font-semibold ${
+                      className={`px-6 py-3 text-center font-semibold ${
                         grocery.Status === "Low Stock"
-                          ? "text-red-500"
-                          : "text-green-500"
+                          ? "text-red-600"
+                          : "text-green-600"
                       }`}
                     >
                       {grocery.Status}
                     </td>
-                    <td className="px-2 py-1 md:py-2">
+                    <td className="px-6 py-3 text-center flex justify-center space-x-3">
                       <button
                         onClick={() => increaseQuantity(grocery.id)}
-                        className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2"
+                        className="text-white bg-[#1db97f] hover:bg-[#1a996d] rounded-full px-4 py-2 shadow-md"
                       >
                         Update
                       </button>
                       <button
                         onClick={() => decreaseQuantity(grocery.id)}
-                        className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2 m-2"
+                        className="text-white bg-red-500 hover:bg-red-600 rounded-full px-4 py-2 shadow-md"
                       >
                         Remove
                       </button>
@@ -227,58 +221,69 @@ const Inventory = () => {
                 ))}
             </tbody>
           </table>
-          <button
-            onClick={() => setShowAllGroceries(!showAllGroceries)}
-            className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2"
-          >
-            {showAllGroceries ? "Show Less" : "See More"}
-          </button>
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={() => setShowAllGroceries(!showAllGroceries)}
+              className="text-white bg-gray-900 hover:bg-gray-800 rounded-full px-6 py-2 shadow-md"
+            >
+              {showAllGroceries ? "Show Less" : "See More"}
+            </button>
+          </div>
         </div>
       </section>
 
+      
       <section>
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-          <div className="p-8 border-2 rounded-lg shadow-lg bg-white">
-            <h1 className="text-3xl font-bold text-center mb-6">
+        <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
+          <div className="p-10 border-2 rounded-3xl shadow-xl bg-white max-w-4xl w-full">
+            <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
               Build Your Plan
             </h1>
 
             {/* Countdown Display */}
-            <div className="grid grid-cols-6 gap-4 text-center">
-              <div>
-                <p className="text-5xl font-semibold">{remainingTime.months}</p>
-                <p className="text-gray-500">Month</p>
+            <div className="grid grid-cols-6 gap-6 text-center">
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+                <p className="text-6xl font-semibold text-gray-800">
+                  {remainingTime.months}
+                </p>
+                <p className="text-gray-500 text-sm">Month</p>
               </div>
-              <div>
-                <p className="text-5xl font-semibold">{remainingTime.weeks}</p>
-                <p className="text-gray-500">Week</p>
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+                <p className="text-6xl font-semibold text-gray-800">
+                  {remainingTime.weeks}
+                </p>
+                <p className="text-gray-500 text-sm">Week</p>
               </div>
-              <div>
-                <p className="text-5xl font-semibold">{remainingTime.days}</p>
-                <p className="text-gray-500">Day</p>
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+                <p className="text-6xl font-semibold text-gray-800">
+                  {remainingTime.days}
+                </p>
+                <p className="text-gray-500 text-sm">Day</p>
               </div>
-              <div>
-                <p className="text-5xl font-semibold">{remainingTime.hours}</p>
-                <p className="text-gray-500">Hour</p>
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+                <p className="text-6xl font-semibold text-gray-800">
+                  {remainingTime.hours}
+                </p>
+                <p className="text-gray-500 text-sm">Hour</p>
               </div>
-              <div>
-                <p className="text-5xl font-semibold">
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+                <p className="text-6xl font-semibold text-gray-800">
                   {remainingTime.minutes}
                 </p>
-                <p className="text-gray-500">Min</p>
+                <p className="text-gray-500 text-sm">Min</p>
               </div>
-              <div>
-                <p className="text-5xl font-semibold">
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+                <p className="text-6xl font-semibold text-gray-800">
                   {remainingTime.seconds}
                 </p>
-                <p className="text-gray-500">Sec</p>
+                <p className="text-gray-500 text-sm">Sec</p>
               </div>
             </div>
 
             {/* Dropdown and Button */}
-            <div className="flex items-center justify-center gap-4 mt-6">
+            <div className="flex items-center justify-center gap-6 mt-8">
               <select
-                className="border rounded-lg p-2 focus:outline-none"
+                className="border-2 border-gray-300 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 value={selectedPeriod}
                 onChange={(e) => setSelectedPeriod(e.target.value)}
               >
@@ -290,7 +295,7 @@ const Inventory = () => {
                 <option value="1month">1 Month</option>
               </select>
               <button
-                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition duration-200"
                 onClick={handleSetTargetDate}
                 disabled={!selectedPeriod}
               >

@@ -117,7 +117,7 @@ const Home = () => {
 
       {/* GroceryMate Banner */}
       <div className="relative flex justify-center items-center mb-10">
-        <div className="w-full h-40 shadow-lg">
+        <div className="w-full h-32 md:h-40 shadow-lg">
           <img
             className="w-full h-full object-cover"
             src="/gbanners/g1.webp"
@@ -125,7 +125,7 @@ const Home = () => {
           />
         </div>
         <div className="absolute inset-0 z-10 bg-[#20cd8d] opacity-40"></div>
-        <h1 className="absolute flex justify-center items-center inset-0 z-20 font-medium text-4xl text-center ">
+        <h1 className="absolute flex justify-center items-center inset-0 z-20 font-medium m-1 md:m-5 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center ">
           Households with smart grocery tracking reduce food waste by 25%.
         </h1>
       </div>

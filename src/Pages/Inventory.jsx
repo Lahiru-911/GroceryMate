@@ -252,8 +252,8 @@ const Inventory = () => {
           <table className="min-w-full table-auto border-separate border-spacing-y-2 mt-5">
             <thead>
               <tr className="bg-white text-gray-800 font-semibold text-sm md:text-md lg:text-lg shadow-md">
-                <th className="x-6 py-3 text-left">Item Name</th>
-                <th className="x-6 py-3 text-left">Category</th>
+                <th className="px-6 py-3 text-left">Item Name</th>
+                <th className="px-6 py-3 text-left">Category</th>
                 <th className="px-6 py-3 text-center">Quantity</th>
                 <th className="px-6 py-3 text-center">Actions</th>
               </tr>

@@ -268,15 +268,12 @@ export default ;
 
 
 
-
-
-
-
-
 <section>
-      
-
-
+        <div className="flex justify-center items-center w-full h-40 shadow-lg bg-[#1b1b1b]">
+          <h2 className="text-white font-semibold text-center text-lg sm:text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl italic tracking-wide">
+            Inventory Management
+          </h2>
+        </div>
         <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
           <table className="min-w-full table-auto border-separate border-spacing-y-2 mt-5">
             <thead>
@@ -296,9 +293,9 @@ export default ;
                     key={grocery.id}
                     className="bg-white hover:bg-gray-100 text-gray-700 text-sm md:text-md shadow-sm rounded-lg"
                   >
-                    <td className="px-2 md:px-4 py-1 md:py-2">{grocery.item}</td>
-                    <td className="px-2 md:px-4 py-1 md:py-2">{grocery.category}</td>
-                    <td className="px-2 md:px-4 py-1 md:py-2 text-center">
+                    <td className="px-6 py-3">{grocery.item}</td>
+                    <td className="px-6 py-3">{grocery.category}</td>
+                    <td className="px-6 py-3 text-center">
                       {grocery.quantity}
                     </td>
                     <td
@@ -338,3 +335,7 @@ export default ;
           </div>
         </div>
       </section>
+
+
+
+

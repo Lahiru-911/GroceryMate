@@ -157,13 +157,15 @@ const Inventory = () => {
       <Countdown />
 
       {/* Existing Table Section */}
-      <section className="p-5 md:p-10">
-        <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
-          Current Groceries List
-        </h2>
-        <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
-          Manage your grocery items and quantities.
-        </p>
+      <section>
+        <div className="p-5 md:p-10">
+          <h2 className="text-black font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+            Current Groceries List
+          </h2>
+          <p className="text- text-sm sm:text-base md:text-lg xl:text-2xl">
+            Manage your grocery items and quantities.
+          </p>
+        </div>
 
         {/* Table Section */}
         <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">

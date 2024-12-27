@@ -155,6 +155,70 @@ const Inventory = () => {
 
       {/* Countdown */}
       <Countdown />
+
+      {/* Existing Table Section */}
+      <section className="p-5 md:p-10">
+        <h2 className="text-white font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+          Current Groceries List
+        </h2>
+        <p className="text-white text-sm sm:text-base md:text-lg xl:text-2xl">
+          Manage your grocery items and quantities.
+        </p>
+
+        {/* Table Section */}
+        <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
+          <table className="min-w-full table-auto border-separate border-spacing-0.5 mt-2 lg:mt-5">
+            <thead>
+              <tr className="bg-white text-gray-800 font-semibold text-sm md:text-md lg:text-lg shadow-md">
+                <th className="px-6 py-3 text-left">Item Name</th>
+                <th className="px-6 py-3 text-left">Category</th>
+                <th className="px-6 py-3 text-center">Quantity</th>
+                <th className="px-6 py-3 text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {groceryList
+                .slice(0, showAllGroceries ? groceryList.length : defaultRows)
+                .map((grocery) => (
+                  <tr
+                    key={grocery.id}
+                    className="bg-gray-50 hover:bg-gray-100 text-center text-xs md:text-sm"
+                  >
+                    <td className="px-2 md:px-4 py-1 md:py-2">
+                      {grocery.item}
+                    </td>
+                    <td className="px-2 md:px-4 py-1 md:py-2">
+                      {grocery.category}
+                    </td>
+                    <td className="px-2 md:px-4 py-1 md:py-2">
+                      {grocery.quantity}
+                    </td>
+                    <td className="px-2 py-1 md:py-2">
+                      <button
+                        onClick={() => increaseQuantity(grocery.id)}
+                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
+                      >
+                        +
+                      </button>
+                      <button
+                        onClick={() => decreaseQuantity(grocery.id)}
+                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
+                      >
+                        -
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+          <button
+            onClick={() => setShowAllGroceries(!showAllGroceries)}
+            className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2"
+          >
+            {showAllGroceries ? "Show Less" : "See More"}
+          </button>
+        </div>
+      </section>
     </>
   );
 };

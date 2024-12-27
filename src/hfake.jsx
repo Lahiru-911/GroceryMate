@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Ho = () => {
+const  = () => {
   const navigate = useNavigate();
 
   // Function to handle reorder for a single item
@@ -68,34 +68,7 @@ const Ho = () => {
 
   return (
     <>
-      {/* Hero Section */}
-      <section>
-        <div className="relative bg-[#20CD8D] w-full min-h-screen overflow-hidden">
-          {/* Hero Text Section */}
-          <div className="absolute z-20 p-5 md:p-10">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl xl:w-5/6 font-semibold leading-tight text-black">
-              Revolutionize Your Grocery Shopping
-            </h1>
-            <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-semibold leading-tight mt-2 lg:mt-5 text-white">
-              Smart, Simple, Timely!
-            </h2>
-            <p className="mt-4 text-justify w-5/6 md:w-3/4 lg:w-2/3 xl:w-7/12 text-sm sm:text-base md:text-lg xl:text-2xl text-gray-950">
-              In today's fast-paced world, grocery shopping can often feel like
-              a chore, especially when you're constantly running out of
-              essential items or struggling to keep up with your household
-              needs. GroceryMate is here to change that.
-            </p>
-          </div>
-          {/* Hero Image */}
-          <div className="absolute bottom-0 right-0 z-10">
-            <img
-              className="w-full max-w-xs sm:max-w-md md:max-w-md lg:max-w-xl xl:max-w-7xl h-auto object-contain"
-              src="./public/dd.png"
-              alt="Illustration of a grocery shopping assistant"
-            />
-          </div>
-        </div>
-      </section>
+     
 
       {/* Current Groceries Section */}
       <section className="p-5 md:p-10">
@@ -161,16 +134,6 @@ const Ho = () => {
         </div>
       </section>
 
-      {/* Banner Section */}
-      <section>
-        <div className="bg-[#20cd8d] w-full min-h-[200px] md:min-h-[300px] lg:min-h-[350px] h-[50vh] mt-3">
-          <img
-            className="object-cover w-full h-full"
-            src="https://lumolog.com/wp-content/uploads/2024/04/Entertainment-Trends-1024x683.jpg"
-            alt="Grocery Image"
-          />
-        </div>
-      </section>
 
       {/* Items About to Run Out Section */}
       <section className="p-5 md:p-10 relative">
@@ -249,4 +212,122 @@ const Ho = () => {
   );
 };
 
-export default Ho;
+export default ;
+
+
+
+ {/* Hero Section */}
+ <section>
+ <div className="relative bg-[#20CD8D] w-full min-h-screen overflow-hidden">
+   {/* Hero Text Section */}
+   <div className="absolute z-20 p-5 md:p-10">
+     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl xl:w-5/6 font-semibold leading-tight text-black">
+       Revolutionize Your Grocery Shopping
+     </h1>
+     <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-semibold leading-tight mt-2 lg:mt-5 text-white">
+       Smart, Simple, Timely!
+     </h2>
+     <p className="mt-4 text-justify w-5/6 md:w-3/4 lg:w-2/3 xl:w-7/12 text-sm sm:text-base md:text-lg xl:text-2xl text-gray-950">
+       In today's fast-paced world, grocery shopping can often feel like
+       a chore, especially when you're constantly running out of
+       essential items or struggling to keep up with your household
+       needs. GroceryMate is here to change that.
+     </p>
+   </div>
+   {/* Hero Image */}
+   <div className="absolute bottom-0 right-0 z-10">
+     <img
+       className="w-full max-w-xs sm:max-w-md md:max-w-md lg:max-w-xl xl:max-w-7xl h-auto object-contain"
+       src="./public/dd.png"
+       alt="Illustration of a grocery shopping assistant"
+     />
+   </div>
+ </div>
+</section>
+
+
+
+ {/* Banner Section */}
+ <section>
+ <div className="bg-[#20cd8d] w-full min-h-[200px] md:min-h-[300px] lg:min-h-[350px] h-[50vh] mt-3">
+   <img
+     className="object-cover w-full h-full"
+     src="https://lumolog.com/wp-content/uploads/2024/04/Entertainment-Trends-1024x683.jpg"
+     alt="Grocery Image"
+   />
+ </div>
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+      
+
+
+        <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
+          <table className="min-w-full table-auto border-separate border-spacing-y-2 mt-5">
+            <thead>
+              <tr className="bg-white text-gray-800 font-semibold text-sm md:text-md lg:text-lg shadow-md">
+                <th className="px-6 py-3 text-left">Item Name</th>
+                <th className="px-6 py-3 text-left">Category</th>
+                <th className="px-6 py-3 text-center">Quantity</th>
+                <th className="px-6 py-3 text-center">Status</th>
+                <th className="px-6 py-3 text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {groceryList
+                .slice(0, showAllGroceries ? groceryList.length : defaultRows)
+                .map((grocery) => (
+                  <tr
+                    key={grocery.id}
+                    className="bg-white hover:bg-gray-100 text-gray-700 text-sm md:text-md shadow-sm rounded-lg"
+                  >
+                    <td className="px-6 py-3">{grocery.item}</td>
+                    <td className="px-6 py-3">{grocery.category}</td>
+                    <td className="px-6 py-3 text-center">
+                      {grocery.quantity}
+                    </td>
+                    <td
+                      className={`px-6 py-3 text-center font-semibold ${
+                        grocery.Status === "Low Stock"
+                          ? "text-red-600"
+                          : "text-green-600"
+                      }`}
+                    >
+                      {grocery.Status}
+                    </td>
+                    <td className="px-6 py-3 text-center flex justify-center space-x-3">
+                      <button
+                        onClick={() => increaseQuantity(grocery.id)}
+                        className="text-white bg-[#1db97f] hover:bg-[#1a996d] rounded-full px-4 py-2 shadow-md"
+                      >
+                        Update
+                      </button>
+                      <button
+                        onClick={() => decreaseQuantity(grocery.id)}
+                        className="text-white bg-red-500 hover:bg-red-600 rounded-full px-4 py-2 shadow-md"
+                      >
+                        Remove
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={() => setShowAllGroceries(!showAllGroceries)}
+              className="text-white bg-gray-900 hover:bg-gray-800 rounded-full px-6 py-2 shadow-md"
+            >
+              {showAllGroceries ? "Show Less" : "See More"}
+            </button>
+          </div>
+        </div>
+      </section>

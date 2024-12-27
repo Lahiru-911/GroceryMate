@@ -214,7 +214,14 @@ const  = () => {
 
 export default ;
 
+<header className="p-5 md:p-10">
+        <h1 className="text-3xl md:text-5xl font-bold">Inventory Management</h1>
+        <p className="text-sm md:text-lg text-gray-300 mt-2">
+          Keep track of your grocery items efficiently.
+        </p>
+      </header>
 
+      
 
  {/* Hero Section */}
  <section>

@@ -232,7 +232,7 @@ const Inventory = () => {
         </div>
       </section>
 
-      
+      {/* Countdown */}
       <section>
         <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
           <div className="p-10 border-2 rounded-3xl shadow-xl bg-white max-w-4xl w-full">
@@ -283,7 +283,7 @@ const Inventory = () => {
             {/* Dropdown and Button */}
             <div className="flex items-center justify-center gap-6 mt-8">
               <select
-                className="border-2 border-gray-300 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="border-2 border-gray-300 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
                 value={selectedPeriod}
                 onChange={(e) => setSelectedPeriod(e.target.value)}
               >
@@ -295,7 +295,7 @@ const Inventory = () => {
                 <option value="1month">1 Month</option>
               </select>
               <button
-                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition duration-200"
+                className="rounded-full px-5 py-2 shadow-md bg-[#20cd8d] text-white hover:bg-[#1aa471] disabled:bg-gray-400 transition duration-200"
                 onClick={handleSetTargetDate}
                 disabled={!selectedPeriod}
               >

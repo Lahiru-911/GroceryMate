@@ -61,6 +61,7 @@ const Home = () => {
     <>
       <HomeBanner />
 
+      {/*Featured Stores  */}
       <section>
         <div className="mb-10 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
           <div className="flex items-center gap-2">
@@ -91,6 +92,7 @@ const Home = () => {
         </div>
       </section>
 
+      {/* iframe section */}
       <section>
         <div
           data-aos="fade-up"

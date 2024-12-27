@@ -62,7 +62,7 @@ const Home = () => {
       <HomeBanner />
 
       <section>
-        <div className="mt-2 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
+        <div className="mb-10 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
           <div className="flex items-center gap-2">
             <h2 className="font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
               Featured Stores
@@ -94,7 +94,7 @@ const Home = () => {
       <section>
         <div
           data-aos="fade-up"
-          className="flex justify-center items-center h-screen mt-5 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20"
+          className="flex justify-center items-center h-screen mb-10 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20"
         >
           <div className="w-full h-screen border border-gray-300 rounded-lg shadow-lg overflow-hidden">
             {iframeSrc ? (

@@ -167,7 +167,7 @@ const Inventory = () => {
 
         {/* Table Section */}
         <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
-          <table className="min-w-full table-auto border-separate border-spacing-0.5 mt-2 lg:mt-5">
+          <table className="min-w-full table-auto border-separate border-spacing-y-2 mt-5">
             <thead>
               <tr className="bg-white text-gray-800 font-semibold text-sm md:text-md lg:text-lg shadow-md">
                 <th className="px-6 py-3 text-left">Item Name</th>
@@ -182,7 +182,7 @@ const Inventory = () => {
                 .map((grocery) => (
                   <tr
                     key={grocery.id}
-                    className="bg-gray-50 hover:bg-gray-100 text-center text-xs md:text-sm"
+                    className="bg-white hover:bg-gray-100 text-gray-700 text-sm md:text-md shadow-sm rounded-lg"
                   >
                     <td className="px-2 md:px-4 py-1 md:py-2">
                       {grocery.item}
@@ -190,19 +190,19 @@ const Inventory = () => {
                     <td className="px-2 md:px-4 py-1 md:py-2">
                       {grocery.category}
                     </td>
-                    <td className="px-2 md:px-4 py-1 md:py-2">
+                    <td className="px-2 md:px-4 py-1 md:py-2 text-center">
                       {grocery.quantity}
                     </td>
-                    <td className="px-2 py-1 md:py-2">
+                    <td className="px-2 py-1 md:py-2 text-center">
                       <button
                         onClick={() => increaseQuantity(grocery.id)}
-                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
+                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg shadow-md"
                       >
                         +
                       </button>
                       <button
                         onClick={() => decreaseQuantity(grocery.id)}
-                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-[#1db97f] hover:bg-[#20cd8d] text-white rounded-full m-2 text-sm md:text-lg"
+                        className="w-8 h-8 md:w-12 md:h-12 px-2 py-2 bg-red-500 hover:bg-red-600 text-white rounded-full m-2 text-sm md:text-lg"
                       >
                         -
                       </button>
@@ -211,12 +211,14 @@ const Inventory = () => {
                 ))}
             </tbody>
           </table>
-          <button
-            onClick={() => setShowAllGroceries(!showAllGroceries)}
-            className="mt-4 text-white bg-[#20cd8d] hover:bg-[#1db97f] rounded-full px-6 py-2"
-          >
-            {showAllGroceries ? "Show Less" : "See More"}
-          </button>
+          <div className="flex justify-center mt-6">
+            <button
+              onClick={() => setShowAllGroceries(!showAllGroceries)}
+              className="text-white bg-gray-900 hover:bg-gray-800 rounded-full px-6 py-2 shadow-md"
+            >
+              {showAllGroceries ? "Show Less" : "See More"}
+            </button>
+          </div>
         </div>
       </section>
     </>

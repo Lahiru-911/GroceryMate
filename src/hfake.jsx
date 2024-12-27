@@ -289,9 +289,9 @@ export default ;
                     key={grocery.id}
                     className="bg-white hover:bg-gray-100 text-gray-700 text-sm md:text-md shadow-sm rounded-lg"
                   >
-                    <td className="px-6 py-3">{grocery.item}</td>
-                    <td className="px-6 py-3">{grocery.category}</td>
-                    <td className="px-6 py-3 text-center">
+                    <td className="px-2 md:px-4 py-1 md:py-2">{grocery.item}</td>
+                    <td className="px-2 md:px-4 py-1 md:py-2">{grocery.category}</td>
+                    <td className="px-2 md:px-4 py-1 md:py-2 text-center">
                       {grocery.quantity}
                     </td>
                     <td

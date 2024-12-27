@@ -10,11 +10,11 @@ const Home = () => {
     },
     {
       imgSrc:
-        "https://cdn.pixabay.com/photo/2024/07/09/16/37/abstract-8884025_960_720.png",
+        "https://cargillsonline.com/VendorItems/Banner/DySec-Gf5rNDlbxnprasara%20(1).png",
     },
     {
       imgSrc:
-        "https://cdn.pixabay.com/photo/2024/07/09/16/37/abstract-8884025_960_720.png",
+        "https://cargillsonline.com/VendorItems/Banner/DySec-ukG4Tf6rND600x350-keels-krest.png",
     },
     {
       imgSrc:
@@ -42,11 +42,18 @@ const Home = () => {
             <FaCartShopping size={20} />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 justify-items-center mt-5">
             {shops.map((shop, index) => (
-              <div key={index} className="w-40 h-auto ">
+              <div
+                key={index}
+                className="max-w-[500px] max-h-[200px] rounded-3xl shadow-2xl transition-transform duration-300 ease-in-out hover:scale-105"
+              >
                 <a href="">
-                  <img className="w-full h-full object-cover" src={shop.imgSrc} alt="" />
+                  <img
+                    className="w-full h-full object-cover rounded-3xl"
+                    src={shop.imgSrc}
+                    alt=""
+                  />
                 </a>
               </div>
             ))}

@@ -32,7 +32,8 @@ const Home = () => {
   return (
     <>
       <HomeBanner />
-      <section className="">
+
+      <section>
         <div className="mt-2 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
           <div className="flex items-center gap-2">
             <h2 className="font-light text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
@@ -40,16 +41,16 @@ const Home = () => {
             </h2>
             <FaCartShopping size={20} />
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {shops.map((shop, index) => (
-            <div key={index}>
-              <a href="">
-                <img src={shop.imgSrc} alt="" />
-              </a>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {shops.map((shop, index) => (
+              <div key={index} className="w-40 h-auto ">
+                <a href="">
+                  <img className="w-full h-full object-cover" src={shop.imgSrc} alt="" />
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -26,10 +26,10 @@ const About = () => {
       {/* Transforming Section */}
       <div className="flex items-center justify-center ">
         <div className="w-5/6 h-fit bg-white/60 shadow-2xl ring-1 ring-gray-900/10 rounded-3xl m-2 md:m-3 xl:m-5 flex flex-col items-center ">
-          <h1 className="text-white font-normal text-center m-2 p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
+          <h1 className="text-black font-normal text-center m-2 p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
             Transforming Grocery Shopping
           </h1>
-          <p className="text-center font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
+          <p className="text-gray-700 text-center font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
             At GroceryMate, we are redefining the way people manage their
             household groceries. Gone are the days of last-minute shopping trips
             or forgotten items. Our platform combines innovation with
@@ -45,10 +45,10 @@ const About = () => {
       {/* Mission & Vision */}
       <div className="flex items-center justify-center ">
         <div className="w-5/6 h-fit bg-white/60 shadow-2xl ring-1 ring-gray-900/10 rounded-3xl m-2 md:m-3 xl:m-5 flex flex-col items-center ">
-          <h1 className="text-white font-normal text-center m-2 p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
+          <h1 className="text-black font-normal text-center m-2 p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
             Brief description about the platform
           </h1>
-          <p className="text-center font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
+          <p className="text-gray-700 text-center font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
             GroceryMate is a cutting-edge platform designed to revolutionize
             grocery management. Powered by advanced machine learning, real-time
             tracking, and smart analytics, our system predicts when your
@@ -60,10 +60,10 @@ const About = () => {
             waste and saving valuable time.
           </p>
 
-          <h1 className="text-white font-normal text-center  p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
+          <h1 className="text-black font-normal text-center  p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
             Mission & Vision
           </h1>
-          <p className="text-center font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
+          <p className="text-gray-700 text-center font-light w-5/6 m-2 p-2 text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-xl ">
             Our mission is to simplify everyday life by providing smarter
             grocery solutions that eliminate the hassle of shopping while
             promoting sustainability. Our vision is to be the world’s most
@@ -75,7 +75,7 @@ const About = () => {
 
       {/*  Core Values */}
       <div>
-        <h1 className="text-white font-normal text-center m-2 p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
+        <h1 className="text-black font-normal text-center m-2 p-2 text-xl sm:text-2xl md:text-4xl lg:text-5xl  2xl:text-7xl">
           Core Values
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 justify-items-center m-5 text-center">
@@ -87,7 +87,7 @@ const About = () => {
               <h1 className="uppercase font-medium m-3 lg:m-5 mt-5 text-xl sm:text-2xl lg:text-3xl 2xl:text-4xl text-center leading-none">
                 {card.title}
               </h1>
-              <p className="text-justify m-6 sm:m-3 md:m-4 sm:mx-8 md:mx-10 text-sm sm:text-sm md:text-base lg:text-sm xl:text-base 2xl:text-xl">
+              <p className="text-gray-700 text-justify m-6 sm:m-3 md:m-4 sm:mx-8 md:mx-10 text-sm sm:text-sm md:text-base lg:text-sm xl:text-base 2xl:text-xl">
                 {card.content}
               </p>
             </div>

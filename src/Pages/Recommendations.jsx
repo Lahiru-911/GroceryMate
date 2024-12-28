@@ -129,7 +129,7 @@ const Recommendations = () => {
         <h1 className="text-white font-semibold text-center text-lg sm:text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl italic tracking-wide m-3">
           Grocery Management in 3 Easy Steps
         </h1>
-        <p className="text-gray-500 font-normal text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl w-3/4">
+        <p className="text-gray-700 font-normal text-sm md:text-base lg:text-lg xl:text-xl w-3/4">
           GroceryMate helps you manage your grocery needs efficiently and
           conveniently. Follow these simple steps to ensure you never run out of
           essentials.
@@ -150,7 +150,7 @@ const Recommendations = () => {
               <h1 className="font-bold text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
                 {image.title}
               </h1>
-              <p className="font-normal text-sm sm:text-base md:text-base lg:text-lg xl:text-lg 2xl:text-xl w-5/6">
+              <p className="font-normal text-sm md:text-base lg:text-lg xl:text-xl w-5/6">
                 {image.description}
               </p>
             </div>

@@ -239,7 +239,7 @@ const Inventory = () => {
 
       {/* Run Out Table */}
       <section>
-        <div className="p-5 md:p-10">
+        <div className="p-5 md:p-10 border-t border-gray-800">
           <h2 className="text-black font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
             Items About to Run Out
           </h2>

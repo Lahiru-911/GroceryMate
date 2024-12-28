@@ -85,7 +85,7 @@ const Countdown = () => {
     <>
       {/* Countdown */}
       <section>
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-50">
+        <div className="flex flex-col items-center justify-center h-screen bg-[#f4f4f4]">
           <div className="p-10 border-2 rounded-3xl shadow-xl bg-white max-w-4xl w-full">
             <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
               Build Your Plan

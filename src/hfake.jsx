@@ -214,127 +214,34 @@ const  = () => {
 
 export default ;
 
-<header className="p-5 md:p-10">
-        <h1 className="text-3xl md:text-5xl font-bold">Inventory Management</h1>
-        <p className="text-sm md:text-lg text-gray-300 mt-2">
-          Keep track of your grocery items efficiently.
-        </p>
-      </header>
-
-      
-
- {/* Hero Section */}
- <section>
- <div className="relative bg-[#20CD8D] w-full min-h-screen overflow-hidden">
-   {/* Hero Text Section */}
-   <div className="absolute z-20 p-5 md:p-10">
-     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl xl:w-5/6 font-semibold leading-tight text-black">
-       Revolutionize Your Grocery Shopping
-     </h1>
-     <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-7xl font-semibold leading-tight mt-2 lg:mt-5 text-white">
-       Smart, Simple, Timely!
-     </h2>
-     <p className="mt-4 text-justify w-5/6 md:w-3/4 lg:w-2/3 xl:w-7/12 text-sm sm:text-base md:text-lg xl:text-2xl text-gray-950">
-       In today's fast-paced world, grocery shopping can often feel like
-       a chore, especially when you're constantly running out of
-       essential items or struggling to keep up with your household
-       needs. GroceryMate is here to change that.
-     </p>
-   </div>
-   {/* Hero Image */}
-   <div className="absolute bottom-0 right-0 z-10">
-     <img
-       className="w-full max-w-xs sm:max-w-md md:max-w-md lg:max-w-xl xl:max-w-7xl h-auto object-contain"
-       src="./public/dd.png"
-       alt="Illustration of a grocery shopping assistant"
-     />
-   </div>
- </div>
-</section>
-
-
-
- {/* Banner Section */}
- <section>
- <div className="bg-[#20cd8d] w-full min-h-[200px] md:min-h-[300px] lg:min-h-[350px] h-[50vh] mt-3">
-   <img
-     className="object-cover w-full h-full"
-     src="https://lumolog.com/wp-content/uploads/2024/04/Entertainment-Trends-1024x683.jpg"
-     alt="Grocery Image"
-   />
- </div>
-</section>
 
 
 
 
-<section>
-        <div className="flex justify-center items-center w-full h-40 shadow-lg bg-[#1b1b1b]">
-          <h2 className="text-white font-semibold text-center text-lg sm:text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl italic tracking-wide">
-            Inventory Management
-          </h2>
-        </div>
-        <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
-          <table className="min-w-full table-auto border-separate border-spacing-y-2 mt-5">
-            <thead>
-              <tr className="bg-white text-gray-800 font-semibold text-sm md:text-md lg:text-lg shadow-md">
-                <th className="px-6 py-3 text-left">Item Name</th>
-                <th className="px-6 py-3 text-left">Category</th>
-                <th className="px-6 py-3 text-center">Quantity</th>
-                <th className="px-6 py-3 text-center">Status</th>
-                <th className="px-6 py-3 text-center">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {groceryList
-                .slice(0, showAllGroceries ? groceryList.length : defaultRows)
-                .map((grocery) => (
-                  <tr
-                    key={grocery.id}
-                    className="bg-white hover:bg-gray-100 text-gray-700 text-sm md:text-md shadow-sm rounded-lg"
-                  >
-                    <td className="px-6 py-3">{grocery.item}</td>
-                    <td className="px-6 py-3">{grocery.category}</td>
-                    <td className="px-6 py-3 text-center">
-                      {grocery.quantity}
-                    </td>
-                    <td
-                      className={`px-6 py-3 text-center font-semibold ${
-                        grocery.Status === "Low Stock"
-                          ? "text-red-600"
-                          : "text-green-600"
-                      }`}
-                    >
-                      {grocery.Status}
-                    </td>
-                    <td className="px-6 py-3 text-center flex justify-center space-x-3">
-                      <button
-                        onClick={() => increaseQuantity(grocery.id)}
-                        className="text-white bg-[#1db97f] hover:bg-[#1a996d] rounded-full px-4 py-2 shadow-md"
-                      >
-                        Update
-                      </button>
-                      <button
-                        onClick={() => decreaseQuantity(grocery.id)}
-                        className="text-white bg-red-500 hover:bg-red-600 rounded-full px-4 py-2 shadow-md"
-                      >
-                        Remove
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-          <div className="flex justify-center mt-6">
-            <button
-              onClick={() => setShowAllGroceries(!showAllGroceries)}
-              className="text-white bg-gray-900 hover:bg-gray-800 rounded-full px-6 py-2 shadow-md"
-            >
-              {showAllGroceries ? "Show Less" : "See More"}
-            </button>
-          </div>
-        </div>
-      </section>
+{/* Meals Section */}
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-12 px-6 bg-[#f4f4f4] place-items-center text-gray-900">
+  {sections.map((section, index) => (
+    <div
+      key={index}
+      className="flex flex-col items-center text-center bg-white shadow-md rounded-lg p-6 transform transition-transform hover:scale-105"
+    >
+      <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-4 border-[#3B82B8]">
+        <img
+          className="object-cover w-full h-full"
+          src={section.image}
+          alt={`Image of ${section.title}`}
+        />
+      </div>
+      <h1 className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl mt-4 text-[#3B82B8]">
+        {section.title}
+      </h1>
+      <p className="font-normal text-sm md:text-base lg:text-lg xl:text-xl text-gray-700 mt-2">
+        {section.description}
+      </p>
+    </div>
+  ))}
+</div>
+
 
 
 

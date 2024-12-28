@@ -175,7 +175,7 @@ const Inventory = () => {
           <h2 className="text-black font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
             Current Groceries List
           </h2>
-          <p className="text- text-sm sm:text-base md:text-lg xl:text-2xl">
+          <p className="text-sm sm:text-base md:text-lg xl:text-2xl">
             Manage your grocery items and quantities.
           </p>
         </div>
@@ -243,7 +243,7 @@ const Inventory = () => {
           <h2 className="text-black font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
             Items About to Run Out
           </h2>
-          <p className="text- text-sm sm:text-base md:text-lg xl:text-2xl">
+          <p className="text-sm sm:text-base md:text-lg xl:text-2xl">
             Manage your grocery items that need to be reordered soon.
           </p>
         </div>

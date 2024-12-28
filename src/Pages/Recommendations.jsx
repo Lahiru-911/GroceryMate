@@ -1,5 +1,24 @@
+import React, { useEffect, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 const Recommendations = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+    });
+
+    const handleScroll = () => {
+      AOS.refresh();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const sections = [
     {
       image:
@@ -81,9 +100,10 @@ const Recommendations = () => {
       </div>
 
       {/* Meals */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:mt-16 xl:mt-28 m-5 place-items-center text-white">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-screen bg-[#f4f4f4] place-items-center text-gray-900 py-12 px-6">
         {sections.map((section, index) => (
           <div
+            data-aos="flip-right"
             key={index}
             className="flex justify-center items-center flex-col text-center"
           >
@@ -97,7 +117,7 @@ const Recommendations = () => {
             <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl m-2">
               {section.title}
             </h1>
-            <p className="font-normal text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-2xl w-5/6 p-2">
+            <p className="font-normal text-sm sm:text-base md:text-lg xl:text-2xl w-5/6 p-2">
               {section.description}
             </p>
           </div>

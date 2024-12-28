@@ -69,7 +69,7 @@ const Recommendations = () => {
   return (
     <>
       {/* Wrapper Div */}
-      <div className="relative mt-2 sm:mt-3 md:mt-4 xl:mt-5">
+      <div className="relative mt-2">
         {/* Background Image */}
         <img src="../../public/r1.jpg" alt="" />
 
@@ -100,24 +100,24 @@ const Recommendations = () => {
       </div>
 
       {/* Meals */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-screen bg-[#f4f4f4] place-items-center text-gray-900 py-12 px-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#f4f4f4] place-items-center text-gray-900 py-12 px-6">
         {sections.map((section, index) => (
           <div
             data-aos="flip-right"
             key={index}
             className="flex justify-center items-center flex-col text-center"
           >
-            <div className="w-48 h-48 rounded-full overflow-hidden">
+            <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full overflow-hidden border-4 border-[#20cd8d]">
               <img
                 className="object-cover w-full h-full"
                 src={section.image}
                 alt={`Sample Image ${index + 1}`}
               />
             </div>
-            <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl m-2">
+            <h1 className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl mt-4 text-gray-900">
               {section.title}
             </h1>
-            <p className="font-normal text-sm sm:text-base md:text-lg xl:text-2xl w-5/6 p-2">
+            <p className="font-normal text-sm md:text-base lg:text-lg xl:text-xl text-gray-700 mt-2 w-5/6 ">
               {section.description}
             </p>
           </div>

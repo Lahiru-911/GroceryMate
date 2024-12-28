@@ -147,10 +147,10 @@ const Recommendations = () => {
               alt={image.alt}
             />
             <div className="flex flex-col justify-center items-center w-full text-center p-4">
-              <h1 className="font-bold text-xl sm:text-xl md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
+              <h1 className="font-bold text-lg md:text-xl lg:text-2xl xl:text-3xl">
                 {image.title}
               </h1>
-              <p className="font-normal text-sm md:text-base lg:text-lg xl:text-xl w-5/6">
+              <p className="font-normal text-sm md:text-base lg:text-lg xl:text-xl m-2 w-5/6">
                 {image.description}
               </p>
             </div>

@@ -27,12 +27,12 @@ const Home = () => {
   const shops = [
     {
       imgSrc:
-        "https://cargillsonline.com/VendorItems/Banner/DySec-OE1mczVL8Ximage%20(1).png",
+        "/home/h.webp",
       iframeSrc: "https://www.residuesolution.com/",
     },
     {
       imgSrc:
-        "https://cargillsonline.com/VendorItems/Banner/DySec-Gf5rNDlbxnprasara%20(1).png",
+        "/home/h2.webp",
       iframeSrc: "https://example.com/2", // Replace with actual URL
     },
     {

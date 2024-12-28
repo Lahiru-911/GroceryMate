@@ -26,34 +26,29 @@ const Home = () => {
 
   const shops = [
     {
-      imgSrc:
-        "/home/h.webp",
-      iframeSrc: "https://www.residuesolution.com/",
+      imgSrc: "/home/h1.webp",
+      iframeSrc: "https://www.keellssuper.com/",
     },
     {
-      imgSrc:
-        "/home/h2.webp",
-      iframeSrc: "https://example.com/2", // Replace with actual URL
+      imgSrc: "/home/h2.webp",
+      iframeSrc: "https://cargillsonline.com/",
     },
     {
-      imgSrc:
-        "https://cargillsonline.com/VendorItems/Banner/DySec-ukG4Tf6rND600x350-keels-krest.png",
-      iframeSrc: "https://example.com/3", // Replace with actual URL
+      imgSrc: "/home/h3.webp",
+      iframeSrc: "https://www.arpico.com/",
     },
     {
-      imgSrc:
-        "https://cargillsonline.com/VendorItems/Banner/DySec-EiW7KnxblZknorr-banner.png",
-      iframeSrc: "https://example.com/4", // Replace with actual URL
+      imgSrc: "/home/h4.webp",
+      iframeSrc:
+        "https://glomark.lk/?gad_source=1&gclid=Cj0KCQiA4L67BhDUARIsADWrl7GcM-9OgggTIoQY3zOfsT0ltBzMQg7_K0m9dNzAZ10YdGKpD2WUCokaAiYcEALw_wcB",
     },
     {
-      imgSrc:
-        "https://cargillsonline.com/VendorItems/Banner/DySec-DZmcyUK7WiRide-Cargills-online-banner.png",
-      iframeSrc: "https://example.com/5", // Replace with actual URL
+      imgSrc: "/home/h5.webp",
+      iframeSrc: "https://www.lankasathosa.lk/",
     },
     {
-      imgSrc:
-        "https://cargillsonline.com/VendorItems/Banner/DySec-akY9MpAdR2kotmal.png",
-      iframeSrc: "https://example.com/6", // Replace with actual URL
+      imgSrc: "/home/h6.webp",
+      iframeSrc: "https://www.rjt.ac.lk/",
     },
   ];
 

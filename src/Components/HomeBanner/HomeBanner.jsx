@@ -17,16 +17,16 @@ function HomeBanner() {
 
   const images = [
     {
-      src: "https://essstr.blob.core.windows.net/uiimg/Carousel/Christmas2024/ChristmasCarousel2024_Web.jpg",
+      src: "/home/hr1.webp",
     },
     {
-      src: "https://essstr.blob.core.windows.net/uiimg/Carousel/Nexus_Online_Promotion_2k24_home_web.jpg",
+      src: "/home/hr2.webp",
     },
     {
-      src: "https://spar2u.lk/cdn/shop/files/SPAR_Local_web_banner_-_1903x800pix_1903x800.jpg?v=1731409178",
+      src: "/home/hr3.webp",
     },
     {
-      src: "https://spar2u.lk/cdn/shop/files/Hamper_web_banner_-_1903x800pix_1903x800.jpg?v=1731060736",
+      src: "/home/hr4.webp",
     },
   ];
 

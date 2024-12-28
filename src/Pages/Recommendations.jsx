@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { Link } from "react-router-dom";
 const Recommendations = () => {
   useEffect(() => {
     AOS.init({
@@ -156,14 +155,6 @@ const Recommendations = () => {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="flex justify-center items-center h-full">
-        <Link to="/orders">
-          <button className="relative p-1 rounded-full bg-white text-[#20cd8d] isolation-auto z-10 border-2 border-[#20cd8d] before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-[#20cd8d] before:transition-all before:duration-700 before:hover:w-full before:z-[-1] hover:text-white before:hover:rounded-full before:rounded-full overflow-hidden transition-all duration-500 ease-in-out text-xs sm:text-xs md:text-xs lg:text-sm xl:text-lg 2xl:text-base font-inter font-normal">
-            + Become a Client
-          </button>
-        </Link>
       </div>
     </>
   );

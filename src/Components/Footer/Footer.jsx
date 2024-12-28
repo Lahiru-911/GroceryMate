@@ -7,13 +7,13 @@ const Footer = () => {
     <footer className="bg-[#ccf4e5] w-full">
       <FooterCarousel />
 
-      <div className="m-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  md:justify-items-center  gap-6 md:gap-12">
+      <div className="m-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14">
         {/* About Section */}
-        <div className="text-start space-y-2">
-          <h4 className="text-xl md:text-3xl lg:text-3xl xl:text-4xl font-medium">
+        <div className="space-y-4">
+          <h4 className="text-2xl font-semibold text-gray-800">
             About GroceryMate
           </h4>
-          <p className="text-sm md:text-base lg:text-base xl:text-lg font-normal w-5/6 ">
+          <p className="text-base text-gray-600 leading-relaxed">
             GroceryMate simplifies your grocery management with smart tracking
             and automated delivery. Always fresh, always on time!
           </p>
@@ -21,135 +21,75 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div className="space-y-4">
-          <h4 className="text-xl md:text-3xl lg:text-3xl xl:text-4xl font-medium">
-            Quick Links
-          </h4>
-          <ul className="space-y-2 text-sm md:text-base lg:text-base xl:text-lg font-normal">
-            <li>
-              <a href="/" className=" hover:text-green-500 transition-colors">
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="/inventory"
-                className="hover:text-green-500 transition-colors"
-              >
-                Inventory
-              </a>
-            </li>
-            <li>
-              <a
-                href="/orders"
-                className="hover:text-green-500 transition-colors"
-              >
-                Orders
-              </a>
-            </li>
-            <li>
-              <a
-                href="/recommendations"
-                className="hover:text-green-500 transition-colors"
-              >
-                Recommendations
-              </a>
-            </li>
-            <li>
-              <a
-                href="/about"
-                className="hover:text-green-500 transition-colors"
-              >
-                About
-              </a>
-            </li>
+          <h4 className="text-2xl font-semibold text-gray-800">Quick Links</h4>
+          <ul className="space-y-2">
+            {["Home", "Inventory", "Orders", "Recommendations", "About"].map(
+              (link) => (
+                <li key={link}>
+                  <a
+                    href={`/${link.toLowerCase()}`}
+                    className="text-base text-gray-600 hover:text-[#20cd8d] transition-colors"
+                  >
+                    {link}
+                  </a>
+                </li>
+              )
+            )}
           </ul>
         </div>
 
         {/* Contact Section */}
         <div className="space-y-4">
-          <h4 className="text-xl md:text-3xl lg:text-3xl xl:text-4xl font-medium">
-            Contact Us
-          </h4>
-          <p className="text-sm md:text-base lg:text-base xl:text-lg font-normal w-5/6">
-            Have questions or need help? We're here for you! Reach out to us via
-            the information below.
+          <h4 className="text-2xl font-semibold text-gray-800">Contact Us</h4>
+          <p className="text-base text-gray-600 leading-relaxed">
+            Have questions or need help? We're here for you!
           </p>
-          <p className="text-gray-600">
-            <strong>Email:</strong>{" "}
-            <a
-              href="mailto:support@grocerymate.com"
-              className="text-blue-500 hover:underline"
-            >
-              support@grocerymate.com
-            </a>
-          </p>
-          <p className="text-gray-600">
-            <strong>Phone:</strong> +1-234-567-890
-          </p>
-          <p className="text-gray-600">
-            <strong>Address:</strong> 123 GroceryMate Lane, Fresh City
-          </p>
+          <ul className="text-gray-600 space-y-2">
+            <li>
+              <strong>Email:</strong>{" "}
+              <a
+                href="mailto:support@grocerymate.com"
+                className="text-[#20cd8d] hover:underline"
+              >
+                support@grocerymate.com
+              </a>
+            </li>
+            <li>
+              <strong>Phone:</strong> +1-234-567-890
+            </li>
+            <li>
+              <strong>Address:</strong> 123 GroceryMate Lane, Fresh City
+            </li>
+          </ul>
         </div>
 
         {/* Social Media Links */}
         <div className="space-y-4">
-          <h4 className="text-xl md:text-3xl lg:text-3xl xl:text-4xl font-medium">
-            Follow Us
-          </h4>
-          <div className="space-y-2 text-sm md:text-base lg:text-base xl:text-lg font-normal">
-            <p>
-              <a
-                href="https://www.facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit our Facebook"
-                className="text-black hover:text-[#20cd8d] flex items-center space-x-2"
-              >
-                <span>Facebook</span>
-                <FaExternalLinkAlt />
-              </a>
-            </p>
-            <p>
-              <a
-                href="https://www.instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit our Instagram"
-                className="text-black hover:text-[#20cd8d] flex items-center space-x-2"
-              >
-                <span>Instagram</span>
-                <FaExternalLinkAlt />
-              </a>
-            </p>
-            <p>
-              <a
-                href="https://www.youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit our YouTube"
-                className="text-black hover:text-[#20cd8d] flex items-center space-x-2"
-              >
-                <span>YouTube</span>
-                <FaExternalLinkAlt />
-              </a>
-            </p>
-            <p>
-              <a
-                href="https://www.tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit our TikTok"
-                className="text-black hover:text-[#20cd8d] flex items-center space-x-2"
-              >
-                <span>TikTok</span>
-                <FaExternalLinkAlt />
-              </a>
-            </p>
+          <h4 className="text-2xl font-semibold text-gray-800">Follow Us</h4>
+          <div className="space-y-3">
+            {[
+              { name: "Facebook", url: "https://www.facebook.com" },
+              { name: "Instagram", url: "https://www.instagram.com" },
+              { name: "YouTube", url: "https://www.youtube.com" },
+              { name: "TikTok", url: "https://www.tiktok.com" },
+            ].map((social) => (
+              <p key={social.name}>
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-base text-gray-600 hover:text-[#20cd8d] flex items-center space-x-2 transition-colors"
+                >
+                  <span>{social.name}</span>
+                  <FaExternalLinkAlt size={14} />
+                </a>
+              </p>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="border-t-2 border-black py-6 mt-8 text-center text-sm md:text-base lg:text-base xl:text-lg font-normal">
+      <div className="border-t border-gray-300 py-6 mt-8 text-center text-sm text-gray-600">
         <p>&copy; 2024 GroceryMate. All rights reserved.</p>
       </div>
     </footer>

@@ -48,7 +48,7 @@ const Home = () => {
     },
     {
       imgSrc: "/home/h6.webp",
-      iframeSrc: "https://www.rjt.ac.lk/",
+      iframeSrc: "https://spar2u.lk/",
     },
   ];
 

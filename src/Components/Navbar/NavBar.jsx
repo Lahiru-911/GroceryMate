@@ -61,7 +61,7 @@ const NavBar = () => {
               setIsMenuOpen(false);
             }}
           >
-            <img src={""} alt="Residue Logo" className="h-5 cursor-pointer" />
+            <img src="/home/logo.webp" alt="Residue Logo" className="h-5 cursor-pointer" />
           </RouterLink>
         </NavbarBrand>
       </NavbarContent>
@@ -76,7 +76,7 @@ const NavBar = () => {
           }}
         >
           <img
-            src={""}
+            src="/home/logo.webp"
             alt="Residue Logo"
             className="h-5 sm:h-4 md:h-5 lg:h-7 xl:h-8 cursor-pointer"
           />
@@ -98,9 +98,9 @@ const NavBar = () => {
               }} // Set active item and close menu
               className={`${
                 activeItem === item.name
-                  ? "text-[#0081FB] font-bold"
+                  ? "text-[#20cd8d] font-bold"
                   : "text-gray-600"
-              } hover:text-[#0081FB] transition-colors duration-300 text-xs sm:text-sm md:text-sm lg:text-base xl:text-xl 2xl:text-xl`}
+              } hover:text-[#20cd8d] transition-colors duration-300 text-xs sm:text-sm md:text-sm lg:text-base xl:text-xl 2xl:text-xl`}
             >
               {item.name}
             </RouterLink>
@@ -112,7 +112,7 @@ const NavBar = () => {
       <NavbarContent justify="end">
         <NavbarItem>
           <Link to="/orders">
-            <button className="relative p-1 rounded-full bg-white text-[#0081FB] isolation-auto z-10 border-2 border-[#0081FB] before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-[#0081FB] before:transition-all before:duration-700 before:hover:w-full before:z-[-1] hover:text-white before:hover:rounded-full before:rounded-full overflow-hidden transition-all duration-500 ease-in-out text-xs sm:text-xs md:text-xs lg:text-sm xl:text-lg 2xl:text-base font-inter font-normal">
+            <button className="relative p-1 rounded-full bg-white text-[#20cd8d] isolation-auto z-10 border-2 border-[#20cd8d] before:absolute before:top-0 before:left-0 before:h-full before:w-0 before:bg-[#20cd8d] before:transition-all before:duration-700 before:hover:w-full before:z-[-1] hover:text-white before:hover:rounded-full before:rounded-full overflow-hidden transition-all duration-500 ease-in-out text-xs sm:text-xs md:text-xs lg:text-sm xl:text-lg 2xl:text-base font-inter font-normal">
               + Become a Client
             </button>
           </Link>

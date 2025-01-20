@@ -5,6 +5,7 @@ import Orders from "../Pages/Orders";
 import Recommendations from "../Pages/Recommendations";
 import About from "../Pages/About";
 import Register from "../Pages/Register";
+import DataForm from "../Pages/DataForm";
 
 const AppRouter = () => {
   return (
@@ -15,7 +16,7 @@ const AppRouter = () => {
       <Route path="/recommendations" element={<Recommendations />} />
       <Route path="/about" element={<About />} />
       <Route path="/register" element={<Register/>} />
-      
+      <Route path="/dataForm" element={<DataForm/>} />
     </Routes>
   );
 };

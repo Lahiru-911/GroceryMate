@@ -229,17 +229,13 @@ const About = () => {
               )}
             </form>
           </div>
-          {/* Map Box */}
+          {/* Image Box */}
           <div className="hidden sm:block">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15844.202952738427!2d79.858473!3d6.884526!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25b001c3e29e3%3A0xe6643f6b87d2e1ed!2sResidue%20Solution%20Pvt%20Ltd!5e0!3m2!1sen!2slk!4v1729247413914!5m2!1sen!2slk"
-              width="100%"
-              height="100%"
-              style={{ border: 0, borderRadius: "20px" }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            <img
+              src="/home/k1.webp"
+              alt="GroceryMate"
+              className="w-full h-full object-cover rounded-lg"
+            />
           </div>
         </div>
       </Card>

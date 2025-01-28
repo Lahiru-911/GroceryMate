@@ -110,7 +110,7 @@ const About = () => {
                 <h1 className="text-2xl font-light sm:text-3xl md:text-4xl lg:text-5xl mb-4">
                   Hey! Tell us all the
                   <br />
-                  <span className="text-[#0081FB]">things</span>
+                  <span className="text-[#20cd8d]">things</span>
                 </h1>
                 <p className="mb-4 text-xs font-normal sm:text-sm lg:text-base">
                   Give us a few details and we’ll offer the best solution.

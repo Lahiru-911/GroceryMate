@@ -85,7 +85,7 @@ const FooterCarousel = () => {
         {images.concat(images).map((img, index) => (
           <div
             key={index}
-            className="p-6 md:p-4 border h-28 sm:h-32 md:h-36 lg:h-40 xl:h-48 2xl:h-56 w-auto sm:w-32 md:w-40 lg:w-52 xl:w-64 2xl:w-80 max-w-none flex justify-center items-center"
+            className="p-6 md:p-8 border h-28 sm:h-32 md:h-36 lg:h-40 xl:h-48 2xl:h-56 w-auto sm:w-32 md:w-40 lg:w-52 xl:w-64 2xl:w-80 max-w-none flex justify-center items-center"
           >
             <img
               src={img.src}

@@ -5,6 +5,7 @@ import "./app.css";
 import { NextUIProvider } from "@nextui-org/react";
 import NavBar from "./Components/Navbar/NavBar";
 
+
 function App() {
   return (
     <NextUIProvider>

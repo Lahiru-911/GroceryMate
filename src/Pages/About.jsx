@@ -215,8 +215,7 @@ const About = () => {
               {/* Submit Button */}
               <Button
                 type="submit"
-                color="primary"
-                className="w-full"
+                className="w-full px-4 py-2 mt-6 text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Submitting..." : "SUBMIT"}

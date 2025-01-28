@@ -121,7 +121,7 @@ const Recommendations = () => {
       </div>
 
       {/* Steps Section */}
-      <div className="text-center flex flex-col justify-center items-center mt-12 md:mt-16 xl:mt-28 px-4">
+      <div className="text-center flex flex-col justify-center items-center mt-12 md:mt-16 xl:mt-28 px-4 ">
         <h1 className="text-white font-bold text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl italic tracking-wide mb-4">
           Grocery Management in 3 Easy Steps
         </h1>
@@ -133,7 +133,7 @@ const Recommendations = () => {
       </div>
 
       {/* Steps Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 px-6 lg:px-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10 px-6 lg:px-12 py-12 ">
         {imageSections.map((image, index) => (
           <div
             key={index}

@@ -1,6 +1,6 @@
 
 
-export default function Orders() {
+export default function Connect() {
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-gray-100 bg-[url('/home/k1.webp')] bg-cover bg-center"

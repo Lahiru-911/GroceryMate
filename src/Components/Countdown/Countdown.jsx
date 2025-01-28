@@ -77,7 +77,7 @@ const Countdown = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-[#e0f7fa] to-[#f1f8e9] px-6">
+    <section className="min-h-screen flex items-center justify-center bg-[url('/home/k2.webp')] bg-cover bg-center bg-no-repeat px-6">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Plan Your Countdown

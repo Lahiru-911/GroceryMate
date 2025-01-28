@@ -111,18 +111,21 @@ const Home = () => {
       </section>
 
       {/* GroceryMate Banner */}
-      <div className="relative flex justify-center items-center mb-10">
-        <div className="w-full h-32 md:h-40 shadow-lg">
-          <img
-            className="w-full h-full object-cover"
-            src="/gbanners/g1.webp"
-            alt=""
-          />
-        </div>
-        <div className="absolute inset-0 z-10 bg-[#20cd8d] opacity-40"></div>
-        <h1 className="absolute flex justify-center items-center inset-0 z-20 font-medium m-1 md:m-5 text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center ">
-          Households with smart grocery tracking reduce food waste by 25%.
+      <div className="relative flex flex-col items-center justify-center bg-gradient-to-r from-[#20cd8d] to-[#1e6b48] rounded-lg shadow-lg p-6 md:p-10 mb-10">
+        {/* Decorative Circle for Visual Enhancement */}
+        <div className="absolute top-0 left-0 w-32 h-32 bg-white/20 rounded-full blur-xl -translate-x-8 -translate-y-8"></div>
+        <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-xl translate-x-8 translate-y-8"></div>
+
+        {/* Content Section */}
+        <h1 className="relative z-10 text-center text-white font-bold text-xl md:text-3xl lg:text-4xl leading-tight">
+          Households with smart grocery tracking reduce food waste by
+          <span className="text-yellow-300 mx-2">25%</span>.
         </h1>
+
+        {/* Call to Action */}
+        <button className="relative z-10 mt-6 bg-yellow-300 text-gray-800 font-medium px-6 py-3 rounded-full shadow-lg hover:bg-yellow-400 hover:scale-105 transition duration-300 ease-in-out">
+          Learn More
+        </button>
       </div>
     </>
   );

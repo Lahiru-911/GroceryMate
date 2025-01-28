@@ -2,8 +2,10 @@ import React from "react";
 
 export default function Orders() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+    <div
+      className="flex items-center justify-center min-h-screen bg-gray-100 bg-[url('/home/k1.webp')] bg-cover bg-center"
+    >
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md bg-opacity-90">
         <h1 className="text-2xl font-bold text-center text-gray-800">
           Welcome to GroceryMate
         </h1>
@@ -61,7 +63,7 @@ export default function Orders() {
           <a href="/register" className="text-green-600 hover:underline">
             Sign up
           </a>
-          <a href="/dataForm" className="text-green-600 hover:underline">
+          <a href="/dataForm" className="text-green-600 hover:underline ml-2">
             Sign xx
           </a>
         </p>

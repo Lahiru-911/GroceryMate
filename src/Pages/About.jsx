@@ -101,143 +101,149 @@ const About = () => {
   ];
   return (
     <>
-      <Card className="w-full h-auto bg-[#FAFAFA] p-2 my-2 font-inter">
-        {/* Main Box */}
-        <div className="grid grid-cols-1 gap-4 p-6 md:grid-cols-2">
-          <div className="space-y-4">
-            <div>
-              <h1 className="text-2xl font-light sm:text-3xl md:text-4xl lg:text-5xl mb-4">
-                Hey! Tell us all the
-                <br />
-                <span className="text-[#0081FB]">things</span>
-              </h1>
-              <p className="mb-4 text-xs font-normal sm:text-sm lg:text-base">
-                Give us a few details and we’ll offer the best solution.
-              </p>
+      <section className="px-6">
+        <Card className="w-full h-auto bg-[#FAFAFA] p-2 my-2 font-inter">
+          {/* Main Box */}
+          <div className="grid grid-cols-1 gap-4 p-6 md:grid-cols-2">
+            <div className="space-y-4">
+              <div>
+                <h1 className="text-2xl font-light sm:text-3xl md:text-4xl lg:text-5xl mb-4">
+                  Hey! Tell us all the
+                  <br />
+                  <span className="text-[#0081FB]">things</span>
+                </h1>
+                <p className="mb-4 text-xs font-normal sm:text-sm lg:text-base">
+                  Give us a few details and we’ll offer the best solution.
+                </p>
+              </div>
+              {/* Form */}
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-3 flex flex-col"
+                encType="multipart/form-data" // Ensure file upload works
+              >
+                {/* Web3Forms Hidden Fields */}
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="49dd2acf-b7e1-4e06-8fa1-1354c0c2c7f8"
+                />
+                <input type="hidden" name="subject" value="Contact Form" />
+                <input
+                  type="hidden"
+                  name="from_name"
+                  value="Residue Solutions"
+                />
+                {/* Input Fields */}
+                <Input
+                  type="text"
+                  name="first_name"
+                  value={formData.first_name}
+                  onChange={handleInputChange}
+                  label="First Name"
+                  variant={variants}
+                  required
+                />
+                <Input
+                  type="text"
+                  name="last_name"
+                  value={formData.last_name}
+                  onChange={handleInputChange}
+                  label="Last Name"
+                  variant={variants}
+                  required
+                />
+                <Input
+                  type="tel"
+                  name="contact_phone"
+                  value={formData.contact_phone}
+                  onChange={handleInputChange}
+                  label="Contact Phone"
+                  variant={variants}
+                  required
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  label="E-mail"
+                  variant={variants}
+                  required
+                />
+                <Textarea
+                  name="idea"
+                  value={formData.idea}
+                  onChange={handleInputChange}
+                  maxRows={3}
+                  label="Let’s talk about your idea"
+                  required
+                />
+                {/* Checkbox Group */}
+                <CheckboxGroup
+                  label="Services Needed"
+                  className="m-3"
+                  name="services[]"
+                  onChange={handleCheckboxChange}
+                >
+                  <Checkbox
+                    value="web application"
+                    checked={formData.services.includes("web application")}
+                  >
+                    Building a website/web application
+                  </Checkbox>
+                  <Checkbox
+                    value="IT services"
+                    checked={formData.services.includes("IT services")}
+                  >
+                    IT services
+                  </Checkbox>
+                  <Checkbox
+                    value="Cloud services"
+                    checked={formData.services.includes("Cloud services")}
+                  >
+                    Cloud services
+                  </Checkbox>
+                  <Checkbox
+                    value="Other"
+                    checked={formData.services.includes("Other")}
+                  >
+                    Other
+                  </Checkbox>
+                </CheckboxGroup>
+                {/* Error Message for Checkbox */}
+                {checkboxError && (
+                  <p className="text-red-500 text-sm">
+                    Please select at least one service.
+                  </p>
+                )}
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  className="w-full px-4 py-2 mt-6 text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "SUBMIT"}
+                </Button>
+                {/* Success Message */}
+                {successMessage && (
+                  <p className="mt-4 text-green-500 text-center">
+                    {successMessage}
+                  </p>
+                )}
+              </form>
             </div>
-            {/* Form */}
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-3 flex flex-col"
-              encType="multipart/form-data" // Ensure file upload works
-            >
-              {/* Web3Forms Hidden Fields */}
-              <input
-                type="hidden"
-                name="access_key"
-                value="49dd2acf-b7e1-4e06-8fa1-1354c0c2c7f8"
+            {/* Image Box */}
+            <div className="hidden sm:block">
+              <img
+                src="/home/k1.webp"
+                alt="GroceryMate"
+                className="w-full h-full object-cover rounded-lg"
               />
-              <input type="hidden" name="subject" value="Contact Form" />
-              <input type="hidden" name="from_name" value="Residue Solutions" />
-              {/* Input Fields */}
-              <Input
-                type="text"
-                name="first_name"
-                value={formData.first_name}
-                onChange={handleInputChange}
-                label="First Name"
-                variant={variants}
-                required
-              />
-              <Input
-                type="text"
-                name="last_name"
-                value={formData.last_name}
-                onChange={handleInputChange}
-                label="Last Name"
-                variant={variants}
-                required
-              />
-              <Input
-                type="tel"
-                name="contact_phone"
-                value={formData.contact_phone}
-                onChange={handleInputChange}
-                label="Contact Phone"
-                variant={variants}
-                required
-              />
-              <Input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                label="E-mail"
-                variant={variants}
-                required
-              />
-              <Textarea
-                name="idea"
-                value={formData.idea}
-                onChange={handleInputChange}
-                maxRows={3}
-                label="Let’s talk about your idea"
-                required
-              />
-              {/* Checkbox Group */}
-              <CheckboxGroup
-                label="Services Needed"
-                className="m-3"
-                name="services[]"
-                onChange={handleCheckboxChange}
-              >
-                <Checkbox
-                  value="web application"
-                  checked={formData.services.includes("web application")}
-                >
-                  Building a website/web application
-                </Checkbox>
-                <Checkbox
-                  value="IT services"
-                  checked={formData.services.includes("IT services")}
-                >
-                  IT services
-                </Checkbox>
-                <Checkbox
-                  value="Cloud services"
-                  checked={formData.services.includes("Cloud services")}
-                >
-                  Cloud services
-                </Checkbox>
-                <Checkbox
-                  value="Other"
-                  checked={formData.services.includes("Other")}
-                >
-                  Other
-                </Checkbox>
-              </CheckboxGroup>
-              {/* Error Message for Checkbox */}
-              {checkboxError && (
-                <p className="text-red-500 text-sm">
-                  Please select at least one service.
-                </p>
-              )}
-              {/* Submit Button */}
-              <Button
-                type="submit"
-                className="w-full px-4 py-2 mt-6 text-white bg-green-600 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Submitting..." : "SUBMIT"}
-              </Button>
-              {/* Success Message */}
-              {successMessage && (
-                <p className="mt-4 text-green-500 text-center">
-                  {successMessage}
-                </p>
-              )}
-            </form>
+            </div>
           </div>
-          {/* Image Box */}
-          <div className="hidden sm:block">
-            <img
-              src="/home/k1.webp"
-              alt="GroceryMate"
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </div>
-        </div>
-      </Card>
+        </Card>
+      </section>
 
       {/* Transforming Section */}
       <div className="flex items-center justify-center ">

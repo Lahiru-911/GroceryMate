@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Countdown from "../Components/Countdown/Countdown";
 
 const Inventory = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   // Initial grocery list data
   const initialGroceryList = [
     {

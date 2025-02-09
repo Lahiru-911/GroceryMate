@@ -5,6 +5,7 @@ const Inventory = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
   // Initial grocery list data
   const initialGroceryList = [
     {
@@ -50,25 +51,63 @@ const Inventory = () => {
       Status: "Low Stock",
     },
   ];
-  const [showAllRunOutItems, setShowAllRunOutItems] = useState(false);
-  const handleReorder = (item) => {
-    alert(`Reorder request sent for ${item.item}.`);
-  };
 
-  const handleReorderAll = () => {
-    const lowStockItems = groceryList.filter((item) => item.quantity <= 1);
-    alert(
-      `Reorder requests sent for: ${lowStockItems
-        .map((item) => item.item)
-        .join(", ")}.`
-    );
-  };
-
-  const defaultRows = 4; // Default number of rows to display
   const [groceryList, setGroceryList] = useState(initialGroceryList);
   const [showAllGroceries, setShowAllGroceries] = useState(false);
+  const [showAllRunOutItems, setShowAllRunOutItems] = useState(false);
 
-  // Increase quantity handler
+  const defaultRows = 4;
+
+  const handleReorder = async (item) => {
+    const formData = new FormData();
+    formData.append("access_key", "e86b5632-b553-48e3-9b74-f8cbe7ab19fe");
+    formData.append("subject", "Grocery Reorder Notification");
+    formData.append(
+      "message",
+      `Reorder request for ${item.item} (${item.category}), current quantity: ${item.quantity}`
+    );
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      alert(`Reorder request sent for ${item.item}.`);
+    } else {
+      alert("Failed to send reorder request. Please try again.");
+    }
+  };
+
+  const handleReorderAll = async () => {
+    const lowStockItems = groceryList.filter((item) => item.quantity <= 5);
+    if (lowStockItems.length === 0) {
+      alert("No items to reorder.");
+      return;
+    }
+
+    const itemsList = lowStockItems
+      .map((item) => `${item.item} (${item.category})`)
+      .join(", ");
+
+    const formData = new FormData();
+    formData.append("access_key", "e86b5632-b553-48e3-9b74-f8cbe7ab19fe");
+    formData.append("subject", "Bulk Grocery Reorder Notification");
+    formData.append("message", `Reorder requests for: ${itemsList}`);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      alert(`Reorder requests sent for: ${itemsList}.`);
+    } else {
+      alert("Failed to send reorder requests. Please try again.");
+    }
+  };
+
+  // Increase and decrease quantity handler
   const increaseQuantity = (id) => {
     setGroceryList((prevList) =>
       prevList.map((item) =>
@@ -76,14 +115,13 @@ const Inventory = () => {
           ? {
               ...item,
               quantity: item.quantity + 1,
-              Status: item.quantity + 1 > 3 ? "In Stock" : "Low Stock",
+              Status: item.quantity + 1 > 5 ? "In Stock" : "Low Stock",
             }
           : item
       )
     );
   };
 
-  // Decrease quantity handler
   const decreaseQuantity = (id) => {
     setGroceryList((prevList) =>
       prevList.map((item) =>
@@ -91,7 +129,7 @@ const Inventory = () => {
           ? {
               ...item,
               quantity: item.quantity - 1,
-              Status: item.quantity - 1 <= 3 ? "Low Stock" : "In Stock",
+              Status: item.quantity - 1 <= 5 ? "Low Stock" : "In Stock",
             }
           : item
       )
@@ -100,13 +138,14 @@ const Inventory = () => {
 
   return (
     <>
-      {/* Main Table */}
+      {/* Main Table: Inventory Management */}
       <section>
         <div className="flex justify-center items-center w-full h-40 shadow-lg bg-[#1b1b1b]">
           <h2 className="text-white font-semibold text-center text-lg sm:text-2xl md:text-3xl lg:text-5xl 2xl:text-6xl italic tracking-wide">
             Inventory Management
           </h2>
         </div>
+
         <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
           <table className="min-w-full table-auto border-separate border-spacing-y-2 mt-5">
             <thead>
@@ -172,7 +211,7 @@ const Inventory = () => {
       {/* Countdown */}
       <Countdown />
 
-      {/* Current Table */}
+      {/* Current Groceries List Table */}
       <section>
         <div className="p-5 md:p-10">
           <h2 className="text-black font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
@@ -183,7 +222,6 @@ const Inventory = () => {
           </p>
         </div>
 
-        {/* Table Section */}
         <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
           <table className="min-w-full table-auto border-separate border-spacing-y-2 mt-5">
             <thead>
@@ -240,7 +278,7 @@ const Inventory = () => {
         </div>
       </section>
 
-      {/* Run Out Table */}
+      {/* Items About to Run Out Table */}
       <section>
         <div className="p-5 md:p-10 border-t border-gray-800">
           <h2 className="text-black font-light text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
@@ -250,7 +288,7 @@ const Inventory = () => {
             Manage your grocery items that need to be reordered soon.
           </p>
         </div>
-        {/* Table Section */}
+
         <div className="overflow-auto md:p-10 bg-[#20cd8d] rounded-lg shadow-lg m-3 mx-1 sm:mx-4 md:mx-8 lg:mx-16 xl:mx-20">
           <table className="min-w-full table-auto border-separate border-spacing-y-2 mt-5">
             <thead>
@@ -263,11 +301,11 @@ const Inventory = () => {
             </thead>
             <tbody>
               {groceryList
-                .filter((grocery) => grocery.quantity <= 1)
+                .filter((grocery) => grocery.quantity <= 5)
                 .slice(
                   0,
                   showAllRunOutItems
-                    ? groceryList.filter((grocery) => grocery.quantity <= 1)
+                    ? groceryList.filter((grocery) => grocery.quantity <= 5)
                         .length
                     : defaultRows
                 )
@@ -297,6 +335,7 @@ const Inventory = () => {
                 ))}
             </tbody>
           </table>
+
           <div className="flex justify-between items-center mt-6">
             <button
               onClick={() => setShowAllRunOutItems(!showAllRunOutItems)}

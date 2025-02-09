@@ -1,38 +1,21 @@
-import { Button } from "@nextui-org/react";
-import { Card } from "@nextui-org/react";
-import { Input } from "@nextui-org/react";
-import { Textarea } from "@nextui-org/react";
-import { CheckboxGroup, Checkbox } from "@nextui-org/checkbox";
+import { Button, Input, Textarea, Card } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 
 const About = () => {
   const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
+    business_name: "",
+    website_URL: "",
     contact_phone: "",
     email: "",
     idea: "",
-    services: [],
   });
   const [successMessage, setSuccessMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [checkboxError, setCheckboxError] = useState(false); // New state for checkbox error
   const variants = ["flat", "bordered", "underlined", "faded"];
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-
-  const handleCheckboxChange = (values) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      services: values,
-    }));
-    // Reset checkbox error state if any checkbox is checked
-    if (values.length > 0) {
-      setCheckboxError(false);
-    }
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -45,12 +28,6 @@ const About = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Check if at least one checkbox is selected
-    if (formData.services.length === 0) {
-      setCheckboxError(true);
-      return; // Prevent form submission if no checkbox is selected
-    }
-
     setIsSubmitting(true);
 
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -61,12 +38,11 @@ const About = () => {
     if (response.ok) {
       setSuccessMessage("Your message has been sent successfully!");
       setFormData({
-        first_name: "",
-        last_name: "",
+        business_name: "",
+        website_URL: "",
         contact_phone: "",
         email: "",
         idea: "",
-        services: [],
       });
     } else {
       setSuccessMessage(
@@ -108,12 +84,12 @@ const About = () => {
             <div className="space-y-4">
               <div>
                 <h1 className="text-2xl font-light sm:text-3xl md:text-4xl lg:text-5xl mb-4">
-                  Hey! Tell us all the
+                  Let’s Get
                   <br />
-                  <span className="text-[#20cd8d]">things</span>
+                  <span className="text-[#20cd8d]">Started!</span>
                 </h1>
                 <p className="mb-4 text-xs font-normal sm:text-sm lg:text-base">
-                  Give us a few details and we’ll offer the best solution.
+                  Fill in the form, and we’ll handle the rest.
                 </p>
               </div>
               {/* Form */}
@@ -126,30 +102,30 @@ const About = () => {
                 <input
                   type="hidden"
                   name="access_key"
-                  value="49dd2acf-b7e1-4e06-8fa1-1354c0c2c7f8"
+                  value="e86b5632-b553-48e3-9b74-f8cbe7ab19fe"
                 />
                 <input type="hidden" name="subject" value="Contact Form" />
                 <input
                   type="hidden"
                   name="from_name"
-                  value="Residue Solutions"
+                  value="Grocerymate"
                 />
                 {/* Input Fields */}
                 <Input
                   type="text"
-                  name="first_name"
-                  value={formData.first_name}
+                  name="business_name"
+                  value={formData.business_name}
                   onChange={handleInputChange}
-                  label="First Name"
+                  label="Business Name"
                   variant={variants}
                   required
                 />
                 <Input
                   type="text"
-                  name="last_name"
-                  value={formData.last_name}
+                  name="website_URL"
+                  value={formData.website_URL}
                   onChange={handleInputChange}
-                  label="Last Name"
+                  label="Website URL"
                   variant={variants}
                   required
                 />
@@ -176,47 +152,10 @@ const About = () => {
                   value={formData.idea}
                   onChange={handleInputChange}
                   maxRows={3}
-                  label="Let’s talk about your idea"
+                  label="Short Description"
                   required
                 />
-                {/* Checkbox Group */}
-                <CheckboxGroup
-                  label="Services Needed"
-                  className="m-3"
-                  name="services[]"
-                  onChange={handleCheckboxChange}
-                >
-                  <Checkbox
-                    value="web application"
-                    checked={formData.services.includes("web application")}
-                  >
-                    Building a website/web application
-                  </Checkbox>
-                  <Checkbox
-                    value="IT services"
-                    checked={formData.services.includes("IT services")}
-                  >
-                    IT services
-                  </Checkbox>
-                  <Checkbox
-                    value="Cloud services"
-                    checked={formData.services.includes("Cloud services")}
-                  >
-                    Cloud services
-                  </Checkbox>
-                  <Checkbox
-                    value="Other"
-                    checked={formData.services.includes("Other")}
-                  >
-                    Other
-                  </Checkbox>
-                </CheckboxGroup>
-                {/* Error Message for Checkbox */}
-                {checkboxError && (
-                  <p className="text-red-500 text-sm">
-                    Please select at least one service.
-                  </p>
-                )}
+
                 {/* Submit Button */}
                 <Button
                   type="submit"

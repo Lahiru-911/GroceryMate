@@ -119,7 +119,7 @@ const Home = () => {
         {/* Content Section */}
         <h1 className="relative z-10 text-center text-white font-bold text-xl md:text-3xl lg:text-4xl leading-tight">
           Households with smart grocery tracking reduce food waste by
-          <span className="text-yellow-300 mx-2">25%</span>.
+          
         </h1>
 
         {/* Call to Action */}
